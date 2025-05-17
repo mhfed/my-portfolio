@@ -1,38 +1,33 @@
-import { component$, useStore } from "@builder.io/qwik";
-import { Link, type DocumentHead } from "@builder.io/qwik-city";
+import { component$ } from '@builder.io/qwik';
+import type { DocumentHead } from '@builder.io/qwik-city';
+import Hero from '~/components/Hero';
+import About from '~/components/About';
+import Skills from '~/components/Skills';
+import Projects from '~/components/Projects';
+import Contact from '~/components/Contact';
 
 export default component$(() => {
   return (
     <>
-      <h1>Hi 👋</h1>
-      <div>
-        Can't wait to see what you build with qwik!
-        <br />
-        Happy coding.
-      </div>
-      <Counter initial={10} />
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Contact />
     </>
   );
 });
 
 export const head: DocumentHead = {
-  title: "Welcome to Qwik",
+  title: 'Your Name - Portfolio',
   meta: [
     {
-      name: "description",
-      content: "Qwik site description",
+      name: 'description',
+      content: 'Professional portfolio showcasing my work as a full-stack developer.',
+    },
+    {
+      name: 'keywords',
+      content: 'portfolio, web development, full-stack, developer, software engineer',
     },
   ],
 };
-
-export const Counter = component$<{ initial: number }>(({ initial }) => {
-  const count = useStore({ value: initial });
-  return (
-    <div>
-      <button onClick$={() => count.value++}>+</button>
-      <button onClick$={() => count.value--}>-</button>
-      {count.value}
-      <Link href="/about">About</Link>
-    </div>
-  );
-});

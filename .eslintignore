@@ -1,3 +1,25 @@
+!.*.js
+!.*.ts
+!.*.cjs
+!.*.mjs
+*.min.*
+*.d.ts
+~*
+__*.*
+node_modules
+.git
+dist
+tmp
+.cache
+.history
+*.log
+*.lock
+tailwind.config.js
+postcss.config.js
+
+# Qwik auto-generated
+src/entry.*
+
 **/*.log
 **/.DS_Store
 *.
@@ -15,7 +37,6 @@ lib
 lib-types
 etc
 external
-node_modules
 temp
 tsc-out
 tsdoc-metadata.json
@@ -23,7 +44,6 @@ target
 output
 rollup.config.js
 build
-.cache
 .vscode
 .rollup.cache
 dist
@@ -36,3 +56,4 @@ pnpm-lock.yaml
 package-lock.json
 yarn.lock
 server
+
