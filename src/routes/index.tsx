@@ -1,6 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
 import { Link } from '@builder.io/qwik-city';
+import HeroSection from '~/components/HeroSection';
 
 export default component$(() => {
   return (
@@ -33,6 +34,7 @@ export default component$(() => {
           {/* Add your featured projects here */}
         </div>
       </section>
+      <HeroSection />
     </div>
   );
 });

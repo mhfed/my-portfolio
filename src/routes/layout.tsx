@@ -1,6 +1,6 @@
 import { component$, Slot } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
-import { Link } from '@builder.io/qwik-city';
+import Navbar from "~/components/Navbar";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -16,36 +16,8 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 export default component$(() => {
   return (
     <>
-      <header class="bg-gray-800 text-white">
-        <nav class="container mx-auto px-4 py-5">
-          <div class="flex justify-between items-center">
-            <div class="text-xl font-bold">
-              <Link href="/" class="hover:text-gray-300">
-                Nguyễn Minh Hiếu
-              </Link>
-            </div>
-            <ul class="flex space-x-6">
-              <li>
-                <Link href="/" class="hover:text-gray-300">Home</Link>
-              </li>
-              <li>
-                <Link href="/about" class="hover:text-gray-300">About</Link>
-              </li>
-              <li>
-                <Link href="/projects" class="hover:text-gray-300">Projects</Link>
-              </li>
-              <li>
-                <Link href="/skills" class="hover:text-gray-300">Skills</Link>
-              </li>
-              <li>
-                <Link href="/contact" class="hover:text-gray-300">Contact</Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
-
-      <main class="container mx-auto px-4 py-8">
+      <Navbar />
+      <main class="container mx-auto px-4 py-8 pt-20">
         <Slot />
       </main>
 
