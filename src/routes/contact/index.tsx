@@ -16,7 +16,7 @@ export default component$(() => {
           <div class="space-y-4">
             <div>
               <h3 class="text-lg font-medium mb-2">Nguyễn Minh Hiếu</h3>
-              <p class="text-gray-600">Full Stack Developer</p>
+              <p class="text-gray-600">Frontend Developer</p>
             </div>
             <div>
               <h3 class="text-lg font-medium mb-2">Location</h3>

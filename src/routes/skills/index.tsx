@@ -3,33 +3,33 @@ import { component$ } from '@builder.io/qwik';
 export default component$(() => {
   const skillCategories = [
     {
-      title: 'Frontend Development',
+      title: 'Core Technologies',
       skills: [
-        { name: 'HTML5', level: 90 },
-        { name: 'CSS3/SCSS', level: 85 },
+        { name: 'HTML5/Semantic HTML', level: 95 },
+        { name: 'CSS3/SCSS', level: 90 },
         { name: 'JavaScript/TypeScript', level: 90 },
-        { name: 'React', level: 85 },
-        { name: 'Vue.js', level: 80 },
+        { name: 'Responsive Design', level: 95 },
+        { name: 'Web Accessibility', level: 85 },
       ],
     },
     {
-      title: 'Backend Development',
+      title: 'Frameworks & Libraries',
       skills: [
-        { name: 'Node.js', level: 85 },
-        { name: 'Python', level: 80 },
-        { name: 'Java', level: 75 },
-        { name: 'SQL', level: 85 },
-        { name: 'MongoDB', level: 80 },
+        { name: 'React', level: 90 },
+        { name: 'Vue.js', level: 85 },
+        { name: 'Tailwind CSS', level: 90 },
+        { name: 'Next.js', level: 80 },
+        { name: 'Redux/Vuex', level: 85 },
       ],
     },
     {
-      title: 'Tools & Technologies',
+      title: 'Tools & Workflow',
       skills: [
-        { name: 'Git', level: 90 },
-        { name: 'Docker', level: 80 },
-        { name: 'AWS', level: 75 },
-        { name: 'CI/CD', level: 80 },
-        { name: 'RESTful APIs', level: 85 },
+        { name: 'Git/GitHub', level: 90 },
+        { name: 'Webpack/Vite', level: 85 },
+        { name: 'Jest/Testing Library', level: 80 },
+        { name: 'Figma/Adobe XD', level: 75 },
+        { name: 'Performance Optimization', level: 85 },
       ],
     },
   ];
@@ -66,12 +66,12 @@ export default component$(() => {
         <h2 class="text-2xl font-semibold mb-6">Additional Skills</h2>
         <div class="flex flex-wrap gap-3">
           {[
-            'Agile Methodology',
-            'Team Leadership',
-            'Problem Solving',
-            'Technical Writing',
-            'Code Review',
-            'Mentoring',
+            'UI/UX Design Principles',
+            'Cross-browser Compatibility',
+            'Mobile-First Development',
+            'Web Performance',
+            'SEO Best Practices',
+            'Component Design',
           ].map((skill, index) => (
             <span
               key={index}
