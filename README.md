@@ -1,65 +1,77 @@
-# Qwik City App ⚡️
+# NGUYỄN MINH HIẾU - Portfolio ⚡️
 
-- [Qwik Docs](https://qwik.dev/)
-- [Discord](https://qwik.dev/chat)
-- [Qwik GitHub](https://github.com/QwikDev/qwik)
-- [@QwikDev](https://twitter.com/QwikDev)
-- [Vite](https://vitejs.dev/)
+Welcome to my personal portfolio website! I'm NGUYỄN MINH HIẾU, a passionate developer focused on creating modern and efficient web applications.
 
----
+## 🌟 About Me
 
-## Project Structure
+I'm a developer who loves building innovative solutions using cutting-edge technologies. My portfolio showcases my projects, skills, and professional journey in software development.
 
-This project is using Qwik with [QwikCity](https://qwik.dev/qwikcity/overview/). QwikCity is just an extra set of tools on top of Qwik to make it easier to build a full site, including directory-based routing, layouts, and more.
+## 🛠 Tech Stack
 
-Inside your project, you'll see the following directory structure:
+My portfolio is built using modern technologies:
+
+- [Qwik](https://qwik.dev/) - For lightning-fast performance
+- [QwikCity](https://qwik.dev/qwikcity/overview/) - For routing and layouts
+- [TypeScript](https://www.typescriptlang.org/) - For type safety
+- [Vite](https://vitejs.dev/) - For development and building
+
+## 💼 Portfolio Features
+
+- Showcase of my professional projects
+- Technical skills and expertise
+- Professional experience timeline
+- Modern, responsive design
+- Optimized performance with SSR
+- Clean and intuitive user interface
+
+## 📁 Project Structure
 
 ```
 ├── public/
-│   └── ...
+│   └── ... (static assets)
 └── src/
     ├── components/
-    │   └── ...
+    │   └── ... (reusable components)
     └── routes/
-        └── ...
+        └── ... (page routes)
 ```
 
-- `src/routes`: Provides the directory-based routing, which can include a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints. Please see the [routing docs](https://qwik.dev/qwikcity/routing/overview/) for more info.
+- `src/routes`: Contains all pages and layouts
+- `src/components`: Houses reusable UI components
+- `public`: Stores static assets like images and fonts
 
-- `src/components`: Recommended directory for components.
+## 🚀 Development
 
-- `public`: Any static assets, like images, can be placed in the public directory. Please see the [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory) for more info.
-
-## Add Integrations and deployment
-
-Use the `bun qwik add` command to add additional integrations. Some examples of integrations includes: Cloudflare, Netlify or Express Server, and the [Static Site Generator (SSG)](https://qwik.dev/qwikcity/guides/static-site-generation/).
+To run the development server:
 
 ```shell
-bun qwik add # or `bun qwik add`
+bun start
 ```
 
-## Development
-
-Development mode uses [Vite's development server](https://vitejs.dev/). The `dev` command will server-side render (SSR) the output during development.
+For production build:
 
 ```shell
-npm start # or `bun start`
+bun build
 ```
 
-> Note: during dev mode, Vite may request a significant number of `.js` files. This does not represent a Qwik production build.
-
-## Preview
-
-The preview command will create a production build of the client modules, a production build of `src/entry.preview.tsx`, and run a local server. The preview server is only for convenience to preview a production build locally and should not be used as a production server.
+To preview the production build:
 
 ```shell
-bun preview # or `bun preview`
+bun preview
 ```
 
-## Production
+## 📝 Technical Notes
 
-The production build will generate client and server modules by running both client and server build commands. The build command will use Typescript to run a type check on the source code.
+- Built with Qwik for optimal performance
+- Server-side rendering enabled
+- TypeScript for enhanced code quality
+- Modern build system with Vite
 
-```shell
-bun build # or `bun build`
-```
+## 🤝 Contact Information
+
+- **Name:** NGUYỄN MINH HIẾU
+- **Email:** [Your email address]
+- **LinkedIn:** [Your LinkedIn profile]
+- **GitHub:** [Your GitHub profile]
+
+Feel free to reach out to me for collaboration opportunities or any questions about my work!
