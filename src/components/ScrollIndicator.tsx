@@ -30,7 +30,7 @@ export const ScrollIndicator = component$(() => {
   });
 
   return (
-    <div class="fixed top-0 left-0 w-full h-1 z-9999 bg-gray-200/30 dark:bg-slate-800/30">
+    <div class="fixed top-0 left-0 w-full h-1 z-[60] bg-gray-200/30 dark:bg-slate-800/30">
       {/* Main progress bar */}
       <div 
         class="h-full bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 transition-transform duration-150 ease-out origin-left shadow-lg"

@@ -83,9 +83,14 @@ section {
   @apply bg-indigo-700 dark:bg-indigo-400;
 }
 
-/* Smooth transitions for all elements */
-* {
+/* Smooth transitions for all elements except fixed positioned ones */
+*:not(.fixed) {
   transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Specific transitions for fixed elements */
+.fixed {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
 }
 
 /* Animations */

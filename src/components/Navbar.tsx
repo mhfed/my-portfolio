@@ -179,7 +179,7 @@ export default component$(() => {
 
       {/* Mobile Menu */}
       <div 
-        class={`mobile-menu md:hidden transition-all duration-300 ease-in-out absolute w-full ${
+        class={`mobile-menu md:hidden transition-all duration-300 ease-in-out absolute w-full z-40 ${
           isMenuOpen.value 
             ? 'opacity-100 translate-y-0 visible'
             : 'opacity-0 -translate-y-2 invisible'
