@@ -17,7 +17,7 @@ export default component$(() => {
   return (
     <>
       <Navbar />
-      <main class="container mx-auto px-4 py-8 pt-20">
+      <main class="">
         <Slot />
       </main>
 
