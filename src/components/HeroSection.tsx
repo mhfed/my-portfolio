@@ -44,7 +44,7 @@ export const HeroSection = component$(() => {
           options={{ duration: 0.8, delay: 0.4 }}
           class=""
         >
-          <p class="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 md:mb-12 leading-relaxed px-4 md:px-0">
+          <p class="text-lg sm:text-xl md:text-2xl text-red-600 dark:text-gray-300 mb-8 md:mb-12 leading-relaxed px-4 md:px-0">
             Frontend Developer | UI/UX Enthusiast | JavaScript Specialist
           </p>
         </MotionSection>

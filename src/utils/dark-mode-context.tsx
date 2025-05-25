@@ -30,8 +30,18 @@ export const DarkModeProvider = component$(() => {
     
     if (typeof window !== 'undefined') {
       localStorage.setItem('darkMode', isDark.value.toString());
-      document.documentElement.classList.toggle('dark', isDark.value);
+      
+      // For Tailwind v4, explicitly add/remove classes
+      if (isDark.value) {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+      }
+      
       console.log('DOM class updated, dark class present:', document.documentElement.classList.contains('dark'));
+      console.log('HTML classes:', document.documentElement.className);
     }
   });
 
@@ -46,16 +56,31 @@ export const DarkModeProvider = component$(() => {
     
     const shouldBeDark = savedMode ? savedMode === 'true' : prefersDark;
     isDark.value = shouldBeDark;
-    document.documentElement.classList.toggle('dark', shouldBeDark);
+    
+    // For Tailwind v4, ensure both class and attribute are set
+    if (shouldBeDark) {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
+    }
     
     console.log('Initial dark mode set to:', shouldBeDark);
+    console.log('HTML classes:', document.documentElement.className);
 
     // Listen for system theme changes
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleChange = (e: MediaQueryListEvent) => {
       if (!localStorage.getItem('darkMode')) {
         isDark.value = e.matches;
-        document.documentElement.classList.toggle('dark', e.matches);
+        if (e.matches) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+        }
         console.log('System theme changed to:', e.matches);
       }
     };
