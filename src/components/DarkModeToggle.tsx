@@ -1,17 +1,14 @@
-import { component$, useVisibleTask$ } from '@builder.io/qwik';
+import { component$ } from '@builder.io/qwik';
 import { useDarkMode } from '~/utils/dark-mode-context';
 
 export const DarkModeToggle = component$(() => {
   const { isDark, toggle } = useDarkMode();
 
-  useVisibleTask$(() => {
-    console.log('DarkModeToggle mounted, isDark:', isDark.value);
-  });
 
   return (
     <button
       onClick$={toggle}
-      class="relative p-3 rounded-xl bg-linear-to-br from-blue-50 to-indigo-100 dark:from-slate-800 dark:to-slate-700 hover:from-blue-100 hover:to-indigo-200 dark:hover:from-slate-700 dark:hover:to-slate-600 transition-all duration-500 group shadow-lg hover:shadow-xl dark:shadow-slate-900/30 border border-blue-200/50 dark:border-slate-600/50 hover:border-blue-300/70 dark:hover:border-slate-500/70 hover:scale-105 active:scale-95"
+      class="cursor-pointer relative rounded-xl bg-linear-to-br from-blue-50 to-indigo-100 dark:from-slate-800 dark:to-slate-700 hover:from-blue-100 hover:to-indigo-200 dark:hover:from-slate-700 dark:hover:to-slate-600 transition-all duration-500 group shadow-lg hover:shadow-xl dark:shadow-slate-900/30 border border-blue-200/50 dark:border-slate-600/50 hover:border-blue-300/70 dark:hover:border-slate-500/70 hover:scale-105 active:scale-95"
       aria-label={isDark.value ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       <div class="relative w-6 h-6 overflow-hidden">

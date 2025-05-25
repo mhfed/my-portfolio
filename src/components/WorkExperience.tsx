@@ -1,4 +1,5 @@
 import { component$ } from '@builder.io/qwik';
+import { ScrollAnimation } from './ScrollAnimation';
 
 export default component$(() => {
   const workExperience = [
@@ -50,19 +51,21 @@ export default component$(() => {
   return (
     <section class="py-12 md:py-20 bg-linear-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-800 transition-colors duration-300" id="experience">
       <div class="max-w-6xl mx-auto px-4 md:px-8">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
-          Work Experience
-        </h2>
+        <ScrollAnimation animation="fadeInUp" delay={0.1}>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+            Work Experience
+          </h2>
+        </ScrollAnimation>
         <div class="relative">
           {/* Timeline line - hidden on mobile */}
           <div class="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-blue-500 to-purple-500 dark:from-blue-400 dark:to-purple-400 hidden md:block"></div>
           
           <div class="space-y-8 md:space-y-12">
-            {workExperience.map((work) => (
-              <div 
-                key={work.company} 
-                class="relative"
-              >
+            {workExperience.map((work, index) => (
+              <ScrollAnimation key={work.company} animation="fadeInLeft" delay={0.2 + index * 0.1}>
+                <div 
+                  class="relative"
+                >
                 {/* Timeline dot - hidden on mobile */}
                 <div class="absolute left-2.5 md:left-6 w-3 h-3 md:w-4 md:h-4 bg-white dark:bg-slate-800 border-3 md:border-4 border-blue-500 dark:border-blue-400 rounded-full hidden md:block transition-colors duration-300"></div>
                 
@@ -113,7 +116,8 @@ export default component$(() => {
                     )}
                   </div>
                 </div>
-              </div>
+                </div>
+              </ScrollAnimation>
             ))}
           </div>
         </div>

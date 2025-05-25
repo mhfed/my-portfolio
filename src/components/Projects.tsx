@@ -1,5 +1,5 @@
-import { component$, useVisibleTask$ } from '@builder.io/qwik';
-import { animate, stagger } from 'motion';
+import { component$ } from '@builder.io/qwik';
+import { ScrollAnimation } from './ScrollAnimation';
 
 export default component$(() => {
   const projects = [
@@ -67,59 +67,22 @@ export default component$(() => {
     },
   ];
 
-  useVisibleTask$(() => {
-    // Animate section title
-    const title = document.querySelector('.projects-title');
-    if (title) {
-      try {
-        animate(
-          title as any,
-          { 
-            opacity: [0, 1],
-            transform: ['translateY(20px)', 'translateY(0)']
-          } as any,
-          { 
-            duration: 0.8
-          } as any
-        );
-      } catch (e) {
-        console.log('Animation not available');
-      }
-    }
 
-    // Animate project cards with stagger
-    const cards = document.querySelectorAll('.project-card');
-    if (cards.length) {
-      try {
-        animate(
-          cards as any,
-          { 
-            opacity: [0, 1],
-            transform: ['translateY(30px)', 'translateY(0)']
-          } as any,
-          { 
-            duration: 0.6,
-            delay: stagger(0.2)
-          } as any
-        );
-      } catch (e) {
-        console.log('Animation not available');
-      }
-    }
-  });
 
   return (
     <section class="py-12 md:py-20 bg-linear-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-800 transition-colors duration-300" id="projects">
       <div class="max-w-6xl mx-auto px-4 md:px-8">
-        <h2 class="projects-title opacity-0 text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
-          Featured Projects
-        </h2>
+        <ScrollAnimation animation="fadeInUp" delay={0.1}>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+            Featured Projects
+          </h2>
+        </ScrollAnimation>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-          {projects.map((project) => (
-            <div 
-              key={project.title} 
-              class="project-card opacity-0 group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg dark:shadow-slate-900/30 hover:shadow-2xl dark:hover:shadow-slate-900/50 transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-slate-700"
-            >
+          {projects.map((project, index) => (
+            <ScrollAnimation key={project.title} animation="fadeInUp" delay={0.2 + index * 0.1}>
+              <div 
+                class="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg dark:shadow-slate-900/30 hover:shadow-2xl dark:hover:shadow-slate-900/50 transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-slate-700"
+              >
               <div class="p-4 md:p-6 lg:p-8">
                 <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-3">
                   <div class="flex-1">
@@ -168,12 +131,14 @@ export default component$(() => {
                   </div>
                 </div>
               </div>
-            </div>
+              </div>
+            </ScrollAnimation>
           ))}
         </div>
         
-        <div class="text-center mt-12 md:mt-16">
-          <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-lg dark:shadow-slate-900/30 border border-gray-100 dark:border-slate-700 transition-colors duration-300">
+        <ScrollAnimation animation="fadeInUp" delay={0.6}>
+          <div class="text-center mt-12 md:mt-16">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-lg dark:shadow-slate-900/30 border border-gray-100 dark:border-slate-700 transition-colors duration-300">
             <h3 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gray-900 dark:text-white">Education & Awards</h3>
             <div class="space-y-4 md:space-y-6">
               <div class="border-l-4 border-blue-500 dark:border-blue-400 pl-4 text-left">
@@ -189,10 +154,12 @@ export default component$(() => {
                 <p class="text-gray-600 dark:text-gray-400 text-xs md:text-sm">Highest grade (Fall 2020, Summer 2021)</p>
               </div>
             </div>
+            </div>
           </div>
-        </div>
+        </ScrollAnimation>
         
-        <div class="text-center mt-6 md:mt-8">
+        <ScrollAnimation animation="fadeInUp" delay={0.7}>
+          <div class="text-center mt-6 md:mt-8">
           <a
             href="https://github.com/mhfed"
             target="_blank"
@@ -204,7 +171,8 @@ export default component$(() => {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
           </a>
-        </div>
+          </div>
+        </ScrollAnimation>
       </div>
     </section>
   );

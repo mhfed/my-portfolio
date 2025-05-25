@@ -1,14 +1,18 @@
 import { component$ } from '@builder.io/qwik';
 import ImgChibi from '~/media/images/chibi.png?jsx';
+import { ScrollAnimation } from './ScrollAnimation';
 
 export default component$(() => {
   return (
     <section class="py-12 md:py-20 bg-white dark:bg-slate-900 transition-colors duration-300" id="about">
       <div class="max-w-6xl mx-auto px-4 md:px-8">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-900 dark:text-white">About Me</h2>
+        <ScrollAnimation animation="fadeInUp" delay={0.1}>
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-900 dark:text-white">About Me</h2>
+        </ScrollAnimation>
         <div class="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          <div class="space-y-4 md:space-y-6 order-2 lg:order-1">
-            <div class="bg-white dark:bg-slate-800 p-4 md:p-6 rounded-2xl shadow-lg dark:shadow-slate-900/30 border border-gray-100 dark:border-slate-700 transition-colors duration-300">
+          <ScrollAnimation animation="fadeInLeft" delay={0.2}>
+            <div class="space-y-4 md:space-y-6 order-2 lg:order-1">
+              <div class="bg-white dark:bg-slate-800 p-4 md:p-6 rounded-2xl shadow-lg dark:shadow-slate-900/30 border border-gray-100 dark:border-slate-700 transition-colors duration-300">
               <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4">NGUYEN MINH HIEU</h3>
               <p class="text-base md:text-lg text-blue-600 dark:text-blue-400 font-semibold mb-4">Frontend Developer</p>
               
@@ -65,9 +69,11 @@ export default component$(() => {
                 <p class="text-gray-600 dark:text-gray-400 text-xs md:text-sm">Companies</p>
               </div>
             </div>
-          </div>
+            </div>
+          </ScrollAnimation>
           
-          <div class="relative order-1 lg:order-2">
+          <ScrollAnimation animation="fadeInRight" delay={0.3}>
+            <div class="relative order-1 lg:order-2">
             <div class="w-full max-w-sm mx-auto lg:max-w-none rounded-lg overflow-hidden shadow-lg dark:shadow-slate-900/30 border border-gray-200 dark:border-slate-700 transition-colors duration-300">
               <ImgChibi 
                 alt="Nguyễn Minh Hiếu - Chibi Avatar" 
@@ -98,7 +104,8 @@ export default component$(() => {
                 </div>
               </div>
             </div>
-          </div>
+            </div>
+          </ScrollAnimation>
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
-import { component$, useVisibleTask$ } from '@builder.io/qwik';
-import { animate, stagger } from 'motion';
+import { component$ } from '@builder.io/qwik';
+import { ScrollAnimation } from './ScrollAnimation';
 
 export default component$(() => {
   const skills = [
@@ -47,81 +47,22 @@ export default component$(() => {
     },
   ];
 
-  useVisibleTask$(() => {
-    // Animate section title
-    const title = document.querySelector('.skills-title');
-    if (title) {
-      try {
-        animate(
-          title as any,
-          { 
-            opacity: [0, 1],
-            transform: ['translateY(20px)', 'translateY(0)']
-          } as any,
-          { 
-            duration: 0.8
-          } as any
-        );
-      } catch (e) {
-        console.log('Animation not available');
-      }
-    }
 
-    // Animate skill cards with stagger
-    const cards = document.querySelectorAll('.skill-card');
-    if (cards.length) {
-      try {
-        animate(
-          cards as any,
-          { 
-            opacity: [0, 1],
-            transform: ['translateY(30px)', 'translateY(0)']
-          } as any,
-          { 
-            duration: 0.6,
-            delay: stagger(0.2)
-          } as any
-        );
-      } catch (e) {
-        console.log('Animation not available');
-      }
-    }
-
-    // Animate progress bars
-    const progressBars = document.querySelectorAll('.progress-bar');
-    if (progressBars.length) {
-      progressBars.forEach((bar) => {
-        const width = bar.getAttribute('data-width');
-        if (width) {
-          try {
-            animate(
-              bar as any,
-              { width: ['0%', `${width}%`] } as any,
-              { 
-                duration: 1,
-                delay: 0.5
-              } as any
-            );
-          } catch (e) {
-            console.log('Animation not available');
-          }
-        }
-      });
-    }
-  });
 
   return (
     <section class="py-12 md:py-20 bg-linear-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-800 transition-colors duration-300" id="skills">
       <div class="max-w-6xl mx-auto px-4 md:px-8">
-        <h2 class="skills-title opacity-0 text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
-          Technical Skills
-        </h2>
+        <ScrollAnimation animation="fadeInUp" delay={0.1}>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+            Technical Skills
+          </h2>
+        </ScrollAnimation>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
-          {skills.map((skillGroup) => (
-            <div 
-              key={skillGroup.category} 
-              class="skill-card opacity-0 bg-white dark:bg-slate-800 rounded-2xl p-4 md:p-6 shadow-lg dark:shadow-slate-900/30 hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-slate-700"
-            >
+          {skills.map((skillGroup, index) => (
+            <ScrollAnimation key={skillGroup.category} animation="fadeInUp" delay={0.2 + index * 0.1}>
+              <div 
+                class="bg-white dark:bg-slate-800 rounded-2xl p-4 md:p-6 shadow-lg dark:shadow-slate-900/30 hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-slate-700"
+              >
               <h3 class="text-lg md:text-xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
                 {skillGroup.category}
               </h3>
@@ -141,12 +82,14 @@ export default component$(() => {
                   </div>
                 ))}
               </div>
-            </div>
+              </div>
+            </ScrollAnimation>
           ))}
         </div>
         
         {/* Additional Skills Summary */}
-        <div class="mt-12 md:mt-16 bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-lg dark:shadow-slate-900/30 border border-gray-100 dark:border-slate-700 transition-colors duration-300">
+        <ScrollAnimation animation="fadeInUp" delay={0.6}>
+          <div class="mt-12 md:mt-16 bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-lg dark:shadow-slate-900/30 border border-gray-100 dark:border-slate-700 transition-colors duration-300">
           <h3 class="text-xl md:text-2xl font-bold text-center mb-6 md:mb-8 text-gray-900 dark:text-white">Additional Expertise</h3>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <div class="text-center">
@@ -171,15 +114,18 @@ export default component$(() => {
               <p class="text-gray-600 dark:text-gray-400 text-xs md:text-sm">Understanding of Assets & build management tools, e.g: Webpack, Babel</p>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollAnimation>
         
-        <div class="mt-12 md:mt-16 text-center">
+        <ScrollAnimation animation="fadeInUp" delay={0.7}>
+          <div class="mt-12 md:mt-16 text-center">
           <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
             Proficient in debugging and optimizing web application performance. 
             Strong analytical skills for business requirements, with up-to-date awareness of web trends. 
             Proficient in Google search and English comprehension.
           </p>
-        </div>
+          </div>
+        </ScrollAnimation>
       </div>
     </section>
   );
