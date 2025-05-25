@@ -24,21 +24,31 @@ export const DarkModeProvider = component$(() => {
   const isDark = useSignal(false);
 
   const toggle = $(() => {
+    console.log('Toggle called, current isDark:', isDark.value);
     isDark.value = !isDark.value;
+    console.log('New isDark value:', isDark.value);
+    
     if (typeof window !== 'undefined') {
       localStorage.setItem('darkMode', isDark.value.toString());
       document.documentElement.classList.toggle('dark', isDark.value);
+      console.log('DOM class updated, dark class present:', document.documentElement.classList.contains('dark'));
     }
   });
 
   useVisibleTask$(() => {
+    console.log('DarkModeProvider useVisibleTask$ running');
+    
     // Check for saved dark mode preference or default to system preference
     const savedMode = localStorage.getItem('darkMode');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
+    console.log('Saved mode:', savedMode, 'Prefers dark:', prefersDark);
+    
     const shouldBeDark = savedMode ? savedMode === 'true' : prefersDark;
     isDark.value = shouldBeDark;
     document.documentElement.classList.toggle('dark', shouldBeDark);
+    
+    console.log('Initial dark mode set to:', shouldBeDark);
 
     // Listen for system theme changes
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -46,6 +56,7 @@ export const DarkModeProvider = component$(() => {
       if (!localStorage.getItem('darkMode')) {
         isDark.value = e.matches;
         document.documentElement.classList.toggle('dark', e.matches);
+        console.log('System theme changed to:', e.matches);
       }
     };
 

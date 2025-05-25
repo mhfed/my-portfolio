@@ -105,26 +105,26 @@ export default component$(() => {
   });
 
   return (
-    <section class="py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-800" id="contact">
+    <section class="py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-800 transition-colors duration-300" id="contact">
       <div class="max-w-6xl mx-auto px-4 md:px-8">
-        <h2 class="contact-title opacity-0 text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+        <h2 class="contact-title opacity-0 text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
           Get In Touch
         </h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           <div class="order-2 lg:order-1">
-            <h3 class="text-xl md:text-2xl font-bold mb-6 md:mb-8 text-gray-900">Contact Information</h3>
+            <h3 class="text-xl md:text-2xl font-bold mb-6 md:mb-8 text-gray-900 dark:text-white">Contact Information</h3>
             <div class="space-y-4 md:space-y-6">
               <div class="contact-item opacity-0 flex items-center group">
                 <span class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-3 md:mr-4 text-white shadow-lg group-hover:scale-110 transition-transform duration-300 text-sm md:text-base">
                   📍
                 </span>
-                <span class="text-gray-700 text-base md:text-lg">Vietnam</span>
+                <span class="text-gray-700 dark:text-gray-300 text-base md:text-lg">Vietnam</span>
               </div>
               <div class="contact-item opacity-0 flex items-center group">
                 <span class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-3 md:mr-4 text-white shadow-lg group-hover:scale-110 transition-transform duration-300 text-sm md:text-base">
                   📧
                 </span>
-                <a href="mailto:nmhieu04091999@gmail.com" class="text-gray-700 text-base md:text-lg hover:text-blue-600 transition-colors duration-300 break-all">
+                <a href="mailto:nmhieu04091999@gmail.com" class="text-gray-700 dark:text-gray-300 text-base md:text-lg hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 break-all">
                   nmhieu04091999@gmail.com
                 </a>
               </div>
@@ -132,13 +132,13 @@ export default component$(() => {
                 <span class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-3 md:mr-4 text-white shadow-lg group-hover:scale-110 transition-transform duration-300 text-sm md:text-base">
                   📱
                 </span>
-                <a href="tel:+84982084197" class="text-gray-700 text-base md:text-lg hover:text-blue-600 transition-colors duration-300">
+                <a href="tel:+84982084197" class="text-gray-700 dark:text-gray-300 text-base md:text-lg hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
                   +84 982 084 197
                 </a>
               </div>
             </div>
             <div class="mt-8 md:mt-12">
-              <h4 class="text-lg md:text-xl font-bold mb-4 md:mb-6 text-gray-900">Follow Me</h4>
+              <h4 class="text-lg md:text-xl font-bold mb-4 md:mb-6 text-gray-900 dark:text-white">Follow Me</h4>
               <div class="flex space-x-4 md:space-x-6">
                 <a href="https://linkedin.com/in/mhfed" target="_blank" rel="noopener noreferrer" class="contact-item opacity-0 w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300">
                   <svg class="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -174,16 +174,16 @@ export default component$(() => {
             >
               <div class="space-y-4 md:space-y-6">
                 <div>
-                  <label class="block text-gray-700 mb-2 font-medium text-sm md:text-base" for="name">
+                  <label class="block text-gray-700 dark:text-gray-300 mb-2 font-medium text-sm md:text-base" for="name">
                     Name
                   </label>
                   <input
                     type="text"
                     id="name"
-                    class={`w-full px-3 md:px-4 py-2 md:py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all duration-300 text-sm md:text-base ${
+                    class={`w-full px-3 md:px-4 py-2 md:py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all duration-300 text-sm md:text-base bg-white dark:bg-slate-800 text-gray-900 dark:text-white ${
                       formState.errors.name 
                         ? 'border-red-500 focus:ring-red-500' 
-                        : 'border-gray-300 focus:ring-blue-500'
+                        : 'border-gray-300 dark:border-slate-600 focus:ring-blue-500 dark:focus:ring-blue-400'
                     }`}
                     required
                     value={formState.name}
@@ -194,16 +194,16 @@ export default component$(() => {
                   )}
                 </div>
                 <div>
-                  <label class="block text-gray-700 mb-2 font-medium text-sm md:text-base" for="email">
+                  <label class="block text-gray-700 dark:text-gray-300 mb-2 font-medium text-sm md:text-base" for="email">
                     Email
                   </label>
                   <input
                     type="email"
                     id="email"
-                    class={`w-full px-3 md:px-4 py-2 md:py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all duration-300 text-sm md:text-base ${
+                    class={`w-full px-3 md:px-4 py-2 md:py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all duration-300 text-sm md:text-base bg-white dark:bg-slate-800 text-gray-900 dark:text-white ${
                       formState.errors.email 
                         ? 'border-red-500 focus:ring-red-500' 
-                        : 'border-gray-300 focus:ring-blue-500'
+                        : 'border-gray-300 dark:border-slate-600 focus:ring-blue-500 dark:focus:ring-blue-400'
                     }`}
                     required
                     value={formState.email}
@@ -214,16 +214,16 @@ export default component$(() => {
                   )}
                 </div>
                 <div>
-                  <label class="block text-gray-700 mb-2 font-medium text-sm md:text-base" for="message">
+                  <label class="block text-gray-700 dark:text-gray-300 mb-2 font-medium text-sm md:text-base" for="message">
                     Message
                   </label>
                   <textarea
                     id="message"
                     rows={4}
-                    class={`w-full px-3 md:px-4 py-2 md:py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all duration-300 text-sm md:text-base resize-none ${
+                    class={`w-full px-3 md:px-4 py-2 md:py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all duration-300 text-sm md:text-base resize-none bg-white dark:bg-slate-800 text-gray-900 dark:text-white ${
                       formState.errors.message 
                         ? 'border-red-500 focus:ring-red-500' 
-                        : 'border-gray-300 focus:ring-blue-500'
+                        : 'border-gray-300 dark:border-slate-600 focus:ring-blue-500 dark:focus:ring-blue-400'
                     }`}
                     required
                     value={formState.message}
@@ -236,10 +236,10 @@ export default component$(() => {
                 <button
                   type="submit"
                   disabled={formState.isSubmitting}
-                  class={`w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 md:py-4 rounded-lg transition-all duration-300 text-sm md:text-base font-medium ${
+                  class={`w-full bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500 text-white py-3 md:py-4 rounded-lg transition-all duration-300 text-sm md:text-base font-medium shadow-lg ${
                     formState.isSubmitting 
                       ? 'opacity-75 cursor-not-allowed' 
-                      : 'hover:from-blue-700 hover:to-purple-700 hover:shadow-lg'
+                      : 'hover:from-blue-700 hover:to-purple-700 dark:hover:from-blue-600 dark:hover:to-purple-600 hover:shadow-xl'
                   }`}
                 >
                   {formState.isSubmitting ? 'Sending...' : 'Send Message'}

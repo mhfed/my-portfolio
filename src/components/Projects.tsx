@@ -109,40 +109,40 @@ export default component$(() => {
   });
 
   return (
-    <section class="py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-800" id="projects">
+    <section class="py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-800 transition-colors duration-300" id="projects">
       <div class="max-w-6xl mx-auto px-4 md:px-8">
-        <h2 class="projects-title opacity-0 text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+        <h2 class="projects-title opacity-0 text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
           Featured Projects
         </h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
           {projects.map((project) => (
             <div 
               key={project.title} 
-              class="project-card opacity-0 group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+              class="project-card opacity-0 group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg dark:shadow-slate-900/30 hover:shadow-2xl dark:hover:shadow-slate-900/50 transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-slate-700"
             >
               <div class="p-4 md:p-6 lg:p-8">
                 <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-3">
                   <div class="flex-1">
-                    <div class={`inline-block px-3 py-1 rounded-full bg-gradient-to-r ${project.color} text-white text-xs md:text-sm font-medium mb-2`}>
+                    <div class={`inline-block px-3 py-1 rounded-full bg-gradient-to-r ${project.color} text-white text-xs md:text-sm font-medium mb-2 shadow-lg`}>
                       {project.company}
                     </div>
-                    <div class="text-xs md:text-sm text-gray-500 mb-1">{project.period}</div>
-                    <div class="text-xs md:text-sm text-gray-500">Team: {project.teamSize}</div>
+                    <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-1">{project.period}</div>
+                    <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400">Team: {project.teamSize}</div>
                   </div>
                 </div>
                 
-                <h3 class="text-lg md:text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors duration-300 leading-tight">
+                <h3 class="text-lg md:text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 leading-tight">
                   {project.title}
                 </h3>
                 
-                <p class="text-gray-600 mb-4 leading-relaxed text-sm md:text-base">{project.description}</p>
+                <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed text-sm md:text-base">{project.description}</p>
                 
                 <div class="mb-4 md:mb-6">
-                  <h4 class="font-semibold text-gray-900 mb-2 text-sm md:text-base">Key Features:</h4>
+                  <h4 class="font-semibold text-gray-900 dark:text-white mb-2 text-sm md:text-base">Key Features:</h4>
                   <ul class="space-y-1">
                     {project.details.slice(0, 3).map((detail, idx) => (
-                      <li key={idx} class="flex items-start gap-2 text-xs md:text-sm text-gray-700">
-                        <span class="w-1 h-1 md:w-1.5 md:h-1.5 bg-blue-500 rounded-full mt-1.5 md:mt-2 flex-shrink-0"></span>
+                      <li key={idx} class="flex items-start gap-2 text-xs md:text-sm text-gray-700 dark:text-gray-300">
+                        <span class="w-1 h-1 md:w-1.5 md:h-1.5 bg-blue-500 dark:bg-blue-400 rounded-full mt-1.5 md:mt-2 flex-shrink-0"></span>
                         <span class="leading-relaxed">{detail}</span>
                       </li>
                     ))}
@@ -150,18 +150,18 @@ export default component$(() => {
                 </div>
                 
                 <div class="mb-4 md:mb-6">
-                  <h4 class="font-semibold text-gray-900 mb-2 text-sm md:text-base">Technologies:</h4>
+                  <h4 class="font-semibold text-gray-900 dark:text-white mb-2 text-sm md:text-base">Technologies:</h4>
                   <div class="flex flex-wrap gap-1.5 md:gap-2">
                     {project.tech.slice(0, 6).map((tech) => (
                       <span 
                         key={tech} 
-                        class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-medium hover:bg-gray-200 transition-colors duration-300"
+                        class="px-2 py-1 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 rounded text-xs font-medium hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors duration-300 border border-gray-200 dark:border-slate-600"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.tech.length > 6 && (
-                      <span class="px-2 py-1 bg-gray-100 text-gray-500 rounded text-xs">
+                      <span class="px-2 py-1 bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-gray-400 rounded text-xs border border-gray-200 dark:border-slate-600">
                         +{project.tech.length - 6} more
                       </span>
                     )}
@@ -173,20 +173,20 @@ export default component$(() => {
         </div>
         
         <div class="text-center mt-12 md:mt-16">
-          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg">
-            <h3 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gray-900">Education & Awards</h3>
+          <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-lg dark:shadow-slate-900/30 border border-gray-100 dark:border-slate-700 transition-colors duration-300">
+            <h3 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gray-900 dark:text-white">Education & Awards</h3>
             <div class="space-y-4 md:space-y-6">
-              <div class="border-l-4 border-blue-500 pl-4 text-left">
-                <h4 class="font-semibold text-gray-900 text-sm md:text-base">FPT Polytechnic Ha Noi</h4>
-                <p class="text-gray-600 text-xs md:text-sm">Web Development (GPA 8.5) - Degree Classification: Good</p>
+              <div class="border-l-4 border-blue-500 dark:border-blue-400 pl-4 text-left">
+                <h4 class="font-semibold text-gray-900 dark:text-white text-sm md:text-base">FPT Polytechnic Ha Noi</h4>
+                <p class="text-gray-600 dark:text-gray-400 text-xs md:text-sm">Web Development (GPA 8.5) - Degree Classification: Good</p>
               </div>
-              <div class="border-l-4 border-purple-500 pl-4 text-left">
-                <h4 class="font-semibold text-gray-900 text-sm md:text-base">Top 4 - FPT Edu Hackathon 2022</h4>
-                <p class="text-gray-600 text-xs md:text-sm">Blockchain Field: Accompany with 4 teammates pass over 3 rounds: (Algorithm, Idea, Product)</p>
+              <div class="border-l-4 border-purple-500 dark:border-purple-400 pl-4 text-left">
+                <h4 class="font-semibold text-gray-900 dark:text-white text-sm md:text-base">Top 4 - FPT Edu Hackathon 2022</h4>
+                <p class="text-gray-600 dark:text-gray-400 text-xs md:text-sm">Blockchain Field: Accompany with 4 teammates pass over 3 rounds: (Algorithm, Idea, Product)</p>
               </div>
-              <div class="border-l-4 border-green-500 pl-4 text-left">
-                <h4 class="font-semibold text-gray-900 text-sm md:text-base">Top 100 Best Student</h4>
-                <p class="text-gray-600 text-xs md:text-sm">Highest grade (Fall 2020, Summer 2021)</p>
+              <div class="border-l-4 border-green-500 dark:border-green-400 pl-4 text-left">
+                <h4 class="font-semibold text-gray-900 dark:text-white text-sm md:text-base">Top 100 Best Student</h4>
+                <p class="text-gray-600 dark:text-gray-400 text-xs md:text-sm">Highest grade (Fall 2020, Summer 2021)</p>
               </div>
             </div>
           </div>
@@ -197,7 +197,7 @@ export default component$(() => {
             href="https://github.com/mhfed"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 border-2 border-gray-300 text-gray-700 px-6 md:px-8 py-3 md:py-4 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all duration-300 hover:shadow-lg text-sm md:text-base"
+            class="inline-flex items-center gap-2 border-2 border-gray-300 dark:border-slate-600 text-gray-700 dark:text-gray-300 px-6 md:px-8 py-3 md:py-4 rounded-lg hover:border-blue-600 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:shadow-lg dark:hover:shadow-slate-900/30 text-sm md:text-base"
           >
             View More on GitHub
             <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
