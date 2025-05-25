@@ -31,7 +31,7 @@ export default component$(() => {
 
     // Handle scroll to update active section
     const handleScroll = () => {
-      const sections = ['hero-section', 'about', 'skills', 'projects', 'contact'];
+      const sections = ['hero-section', 'about', 'skills', 'experience', 'projects', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const sectionId of sections) {

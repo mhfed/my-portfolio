@@ -48,48 +48,48 @@ export default component$(() => {
   ];
 
   return (
-    <section class="py-20 bg-gradient-to-b from-white to-gray-50" id="experience">
-      <div class="max-w-6xl mx-auto px-8">
-        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+    <section class="py-12 md:py-20 bg-gradient-to-b from-white to-gray-50" id="experience">
+      <div class="max-w-6xl mx-auto px-4 md:px-8">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
           Work Experience
         </h2>
         <div class="relative">
-          {/* Timeline line */}
-          <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500 hidden md:block"></div>
+          {/* Timeline line - hidden on mobile */}
+          <div class="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500 hidden md:block"></div>
           
-          <div class="space-y-12">
+          <div class="space-y-8 md:space-y-12">
             {workExperience.map((work) => (
               <div 
                 key={work.company} 
                 class="relative"
               >
-                {/* Timeline dot */}
-                <div class="absolute left-6 w-4 h-4 bg-white border-4 border-blue-500 rounded-full hidden md:block"></div>
+                {/* Timeline dot - hidden on mobile */}
+                <div class="absolute left-2.5 md:left-6 w-3 h-3 md:w-4 md:h-4 bg-white border-3 md:border-4 border-blue-500 rounded-full hidden md:block"></div>
                 
                 <div class="md:ml-20">
-                  <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                      <div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">{work.position}</h3>
-                        <h4 class="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-2">
+                  <div class="bg-white rounded-2xl p-4 md:p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4 gap-3 md:gap-4">
+                      <div class="flex-1">
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-2">{work.position}</h3>
+                        <h4 class="text-lg md:text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-2">
                           {work.company}
                         </h4>
                       </div>
-                      <div class={`px-4 py-2 rounded-full bg-gradient-to-r ${work.color} text-white font-medium text-sm`}>
+                      <div class={`px-3 md:px-4 py-2 rounded-full bg-gradient-to-r ${work.color} text-white font-medium text-sm md:text-sm whitespace-nowrap`}>
                         {work.period}
                       </div>
                     </div>
                     
-                    <p class="text-gray-700 mb-6 leading-relaxed">{work.description}</p>
+                    <p class="text-gray-700 mb-4 md:mb-6 leading-relaxed text-sm md:text-base">{work.description}</p>
                     
                     {work.highlights && (
-                      <div class="mb-6">
-                        <h5 class="font-semibold text-gray-900 mb-3">Key Achievements:</h5>
-                        <ul class="space-y-2">
+                      <div class="mb-4 md:mb-6">
+                        <h5 class="font-semibold text-gray-900 mb-2 md:mb-3 text-sm md:text-base">Key Achievements:</h5>
+                        <ul class="space-y-1.5 md:space-y-2">
                           {work.highlights.map((highlight, idx) => (
-                            <li key={idx} class="flex items-start gap-3">
-                              <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                              <span class="text-gray-700">{highlight}</span>
+                            <li key={idx} class="flex items-start gap-2 md:gap-3">
+                              <span class="w-1.5 h-1.5 md:w-2 md:h-2 bg-blue-500 rounded-full mt-1.5 md:mt-2 flex-shrink-0"></span>
+                              <span class="text-gray-700 text-sm md:text-base leading-relaxed">{highlight}</span>
                             </li>
                           ))}
                         </ul>
@@ -98,12 +98,12 @@ export default component$(() => {
                     
                     {work.tech && (
                       <div>
-                        <h5 class="font-semibold text-gray-900 mb-3">Technologies Used:</h5>
-                        <div class="flex flex-wrap gap-2">
+                        <h5 class="font-semibold text-gray-900 mb-2 md:mb-3 text-sm md:text-base">Technologies Used:</h5>
+                        <div class="flex flex-wrap gap-1.5 md:gap-2">
                           {work.tech.map((tech) => (
                             <span 
                               key={tech} 
-                              class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-300"
+                              class="px-2 md:px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs md:text-sm font-medium hover:bg-gray-200 transition-colors duration-300"
                             >
                               {tech}
                             </span>
