@@ -8,6 +8,10 @@ export default component$(() => {
   const scrollToSection = $((sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
+      // Update URL hash
+      const hash = sectionId === 'hero-section' ? '' : `#${sectionId}`;
+      window.history.pushState(null, '', hash || '/');
+      
       element.scrollIntoView({ 
         behavior: 'smooth',
         block: 'start'
@@ -16,7 +20,7 @@ export default component$(() => {
     isMenuOpen.value = false;
   });
 
-  // Close menu when clicking outside
+  // Close menu when clicking outside and handle initial hash
   useVisibleTask$(() => {
     const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -36,18 +40,59 @@ export default component$(() => {
           const { offsetTop, offsetHeight } = element;
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
             activeSection.value = sectionId;
+            // Update URL hash without triggering scroll
+            const hash = sectionId === 'hero-section' ? '' : `#${sectionId}`;
+            if (window.location.hash !== hash) {
+              window.history.replaceState(null, '', hash || '/');
+            }
             break;
           }
         }
       }
     };
 
+    // Handle initial hash on page load
+    const handleInitialHash = () => {
+      const hash = window.location.hash.slice(1); // Remove #
+      if (hash) {
+        const element = document.getElementById(hash);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            });
+            activeSection.value = hash;
+          }, 100);
+        }
+      }
+    };
+
+    // Handle browser back/forward buttons
+    const handlePopState = () => {
+      const hash = window.location.hash.slice(1);
+      const sectionId = hash || 'hero-section';
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+        activeSection.value = sectionId;
+      }
+    };
+
     document.addEventListener('click', handleClickOutside);
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('popstate', handlePopState);
+    
+    // Check initial hash
+    handleInitialHash();
     
     return () => {
       document.removeEventListener('click', handleClickOutside);
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('popstate', handlePopState);
     };
   });
 
