@@ -48,14 +48,14 @@ export default component$(() => {
   ];
 
   return (
-    <section class="py-12 md:py-20 bg-gradient-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-800 transition-colors duration-300" id="experience">
+    <section class="py-12 md:py-20 bg-linear-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-800 transition-colors duration-300" id="experience">
       <div class="max-w-6xl mx-auto px-4 md:px-8">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
           Work Experience
         </h2>
         <div class="relative">
           {/* Timeline line - hidden on mobile */}
-          <div class="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500 dark:from-blue-400 dark:to-purple-400 hidden md:block"></div>
+          <div class="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-blue-500 to-purple-500 dark:from-blue-400 dark:to-purple-400 hidden md:block"></div>
           
           <div class="space-y-8 md:space-y-12">
             {workExperience.map((work) => (
@@ -71,11 +71,11 @@ export default component$(() => {
                     <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4 gap-3 md:gap-4">
                       <div class="flex-1">
                         <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-2">{work.position}</h3>
-                        <h4 class="text-lg md:text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 mb-2">
+                        <h4 class="text-lg md:text-xl font-semibold text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 mb-2">
                           {work.company}
                         </h4>
                       </div>
-                      <div class={`px-3 md:px-4 py-2 rounded-full bg-gradient-to-r ${work.color} text-white font-medium text-sm md:text-sm whitespace-nowrap shadow-lg`}>
+                      <div class={`px-3 md:px-4 py-2 rounded-full bg-linear-to-r ${work.color} text-white font-medium text-sm md:text-sm whitespace-nowrap shadow-lg`}>
                         {work.period}
                       </div>
                     </div>
@@ -88,7 +88,7 @@ export default component$(() => {
                         <ul class="space-y-1.5 md:space-y-2">
                           {work.highlights.map((highlight, idx) => (
                             <li key={idx} class="flex items-start gap-2 md:gap-3">
-                              <span class="w-1.5 h-1.5 md:w-2 md:h-2 bg-blue-500 dark:bg-blue-400 rounded-full mt-1.5 md:mt-2 flex-shrink-0"></span>
+                              <span class="w-1.5 h-1.5 md:w-2 md:h-2 bg-blue-500 dark:bg-blue-400 rounded-full mt-1.5 md:mt-2 shrink-0"></span>
                               <span class="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed">{highlight}</span>
                             </li>
                           ))}

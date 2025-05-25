@@ -21,11 +21,11 @@ export default component$(() => {
     <DarkModeProvider>
       <ScrollIndicator />
       <Navbar />
-      <main class="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 dark:from-slate-900 dark:via-slate-800/50 dark:to-slate-900">
+      <main class="min-h-screen bg-linear-to-br from-white via-blue-50/30 to-purple-50/30 dark:from-slate-900 dark:via-slate-800/50 dark:to-slate-900">
         <Slot />
       </main>
 
-      <footer class="relative bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-white overflow-hidden">
+      <footer class="relative bg-linear-to-br from-gray-900 via-slate-800 to-gray-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-white overflow-hidden">
         {/* Animated background elements */}
         <div class="absolute inset-0 opacity-10">
           <div class="absolute top-0 left-0 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
@@ -34,14 +34,14 @@ export default component$(() => {
         </div>
 
         {/* Gradient overlay */}
-        <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+        <div class="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent"></div>
         
         <div class="relative container mx-auto px-4 py-12">
           {/* Main footer content */}
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             {/* Brand section */}
             <div class="text-center md:text-left">
-              <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
+              <h3 class="text-2xl font-bold bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
                 Nguyễn Minh Hiếu
               </h3>
               <p class="text-gray-300 dark:text-gray-400 leading-relaxed">
@@ -78,10 +78,10 @@ export default component$(() => {
                 </p>
                 <div class="flex justify-center md:justify-end space-x-4 mt-4">
                   {/* Social links placeholder */}
-                  <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
+                  <div class="w-8 h-8 bg-linear-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
                     <span class="text-xs">Li</span>
                   </div>
-                  <div class="w-8 h-8 bg-gradient-to-r from-gray-700 to-gray-800 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
+                  <div class="w-8 h-8 bg-linear-to-r from-gray-700 to-gray-800 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
                     <span class="text-xs">Gh</span>
                   </div>
                 </div>

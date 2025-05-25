@@ -20,7 +20,7 @@ export const HeroSection = component$(() => {
       options={{ duration: 0.8 }}
       class="min-h-screen flex items-center justify-center relative overflow-hidden px-4 md:px-0"
     >
-      <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 animate-gradient"></div>
+      <div class="absolute inset-0 bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 animate-gradient"></div>
 
       <div class="absolute inset-0 overflow-hidden">
         <div class="absolute top-20 left-20 w-32 h-32 md:w-64 md:h-64 bg-blue-200 dark:bg-blue-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-70 animate-blob"></div>
@@ -35,7 +35,7 @@ export const HeroSection = component$(() => {
           class=""
         >
           <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4 md:mb-6 leading-tight">
-            Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 block sm:inline">Nguyen Minh Hieu</span>
+            Hi, I'm <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 block sm:inline">Nguyen Minh Hieu</span>
           </h1>
         </MotionSection>
 
@@ -57,7 +57,7 @@ export const HeroSection = component$(() => {
           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button 
               onClick$={() => scrollToSection('projects')}
-              class="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 md:py-4 px-6 md:px-8 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-sm md:text-base"
+              class="w-full sm:w-auto bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 md:py-4 px-6 md:px-8 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-sm md:text-base"
             >
               View My Work
             </button>

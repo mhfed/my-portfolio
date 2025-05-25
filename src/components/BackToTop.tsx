@@ -22,7 +22,7 @@ export const BackToTop = component$(() => {
   return (
     <button
       onClick$={scrollToTop}
-      class={`fixed bottom-8 right-8 z-50 w-14 h-14 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 dark:from-blue-500 dark:via-purple-500 dark:to-blue-600 text-white rounded-2xl shadow-xl dark:shadow-slate-900/50 hover:shadow-2xl transition-all duration-500 hover:scale-110 active:scale-95 group border border-white/20 dark:border-slate-600/30 backdrop-blur-sm ${
+      class={`fixed bottom-8 right-8 z-50 w-14 h-14 bg-linear-to-br from-blue-600 via-purple-600 to-blue-700 dark:from-blue-500 dark:via-purple-500 dark:to-blue-600 text-white rounded-2xl shadow-xl dark:shadow-slate-900/50 hover:shadow-2xl transition-all duration-500 hover:scale-110 active:scale-95 group border border-white/20 dark:border-slate-600/30 backdrop-blur-sm ${
         isVisible.value 
           ? 'opacity-100 translate-y-0 rotate-0' 
           : 'opacity-0 translate-y-8 rotate-180 pointer-events-none'
@@ -30,7 +30,7 @@ export const BackToTop = component$(() => {
       aria-label="Back to top"
     >
       {/* Animated background glow */}
-      <div class="absolute inset-0 bg-gradient-to-br from-blue-400/30 to-purple-500/30 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+      <div class="absolute inset-0 bg-linear-to-br from-blue-400/30 to-purple-500/30 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
       
       {/* Icon container */}
       <div class="relative flex items-center justify-center w-full h-full">

@@ -109,9 +109,9 @@ export default component$(() => {
   });
 
   return (
-    <section class="py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-800 transition-colors duration-300" id="projects">
+    <section class="py-12 md:py-20 bg-linear-to-b from-gray-50 to-white dark:from-slate-900 dark:to-slate-800 transition-colors duration-300" id="projects">
       <div class="max-w-6xl mx-auto px-4 md:px-8">
-        <h2 class="projects-title opacity-0 text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+        <h2 class="projects-title opacity-0 text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
           Featured Projects
         </h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
@@ -123,7 +123,7 @@ export default component$(() => {
               <div class="p-4 md:p-6 lg:p-8">
                 <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-3">
                   <div class="flex-1">
-                    <div class={`inline-block px-3 py-1 rounded-full bg-gradient-to-r ${project.color} text-white text-xs md:text-sm font-medium mb-2 shadow-lg`}>
+                    <div class={`inline-block px-3 py-1 rounded-full bg-linear-to-r ${project.color} text-white text-xs md:text-sm font-medium mb-2 shadow-lg`}>
                       {project.company}
                     </div>
                     <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-1">{project.period}</div>
@@ -142,7 +142,7 @@ export default component$(() => {
                   <ul class="space-y-1">
                     {project.details.slice(0, 3).map((detail, idx) => (
                       <li key={idx} class="flex items-start gap-2 text-xs md:text-sm text-gray-700 dark:text-gray-300">
-                        <span class="w-1 h-1 md:w-1.5 md:h-1.5 bg-blue-500 dark:bg-blue-400 rounded-full mt-1.5 md:mt-2 flex-shrink-0"></span>
+                        <span class="w-1 h-1 md:w-1.5 md:h-1.5 bg-blue-500 dark:bg-blue-400 rounded-full mt-1.5 md:mt-2 shrink-0"></span>
                         <span class="leading-relaxed">{detail}</span>
                       </li>
                     ))}

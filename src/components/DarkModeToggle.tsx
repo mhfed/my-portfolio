@@ -11,7 +11,7 @@ export const DarkModeToggle = component$(() => {
   return (
     <button
       onClick$={toggle}
-      class="relative p-3 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-800 dark:to-slate-700 hover:from-blue-100 hover:to-indigo-200 dark:hover:from-slate-700 dark:hover:to-slate-600 transition-all duration-500 group shadow-lg hover:shadow-xl dark:shadow-slate-900/30 border border-blue-200/50 dark:border-slate-600/50 hover:border-blue-300/70 dark:hover:border-slate-500/70 hover:scale-105 active:scale-95"
+      class="relative p-3 rounded-xl bg-linear-to-br from-blue-50 to-indigo-100 dark:from-slate-800 dark:to-slate-700 hover:from-blue-100 hover:to-indigo-200 dark:hover:from-slate-700 dark:hover:to-slate-600 transition-all duration-500 group shadow-lg hover:shadow-xl dark:shadow-slate-900/30 border border-blue-200/50 dark:border-slate-600/50 hover:border-blue-300/70 dark:hover:border-slate-500/70 hover:scale-105 active:scale-95"
       aria-label={isDark.value ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       <div class="relative w-6 h-6 overflow-hidden">
@@ -44,8 +44,8 @@ export const DarkModeToggle = component$(() => {
         {/* Animated background glow */}
         <div class={`absolute inset-0 rounded-lg transition-all duration-500 ${
           isDark.value 
-            ? 'bg-gradient-to-br from-blue-400/20 to-purple-500/20 shadow-inner' 
-            : 'bg-gradient-to-br from-yellow-300/30 to-orange-400/30 shadow-inner'
+            ? 'bg-linear-to-br from-blue-400/20 to-purple-500/20 shadow-inner' 
+            : 'bg-linear-to-br from-yellow-300/30 to-orange-400/30 shadow-inner'
         }`}></div>
       </div>
 

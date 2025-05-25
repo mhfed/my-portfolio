@@ -111,9 +111,9 @@ export default component$(() => {
   });
 
   return (
-    <section class="py-12 md:py-20 bg-gradient-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-800 transition-colors duration-300" id="skills">
+    <section class="py-12 md:py-20 bg-linear-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-800 transition-colors duration-300" id="skills">
       <div class="max-w-6xl mx-auto px-4 md:px-8">
-        <h2 class="skills-title opacity-0 text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+        <h2 class="skills-title opacity-0 text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
           Technical Skills
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
@@ -122,7 +122,7 @@ export default component$(() => {
               key={skillGroup.category} 
               class="skill-card opacity-0 bg-white dark:bg-slate-800 rounded-2xl p-4 md:p-6 shadow-lg dark:shadow-slate-900/30 hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-slate-700"
             >
-              <h3 class="text-lg md:text-xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+              <h3 class="text-lg md:text-xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
                 {skillGroup.category}
               </h3>
               <div class="space-y-3 md:space-y-4">
@@ -134,7 +134,7 @@ export default component$(() => {
                     </div>
                     <div class="h-1.5 md:h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
                       <div 
-                        class="progress-bar h-full bg-gradient-to-r from-blue-500 to-purple-500 dark:from-blue-400 dark:to-purple-400 rounded-full"
+                        class="progress-bar h-full bg-linear-to-r from-blue-500 to-purple-500 dark:from-blue-400 dark:to-purple-400 rounded-full"
                         data-width={skill.level}
                       ></div>
                     </div>
