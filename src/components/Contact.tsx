@@ -18,51 +18,60 @@ export default component$(() => {
     // Animate section title
     const title = document.querySelector('.contact-title');
     if (title) {
-      animate(
-        title as Element,
-        { 
-          opacity: [0, 1],
-          transform: ['translateY(20px)', 'translateY(0)']
-        },
-        { 
-          duration: 0.8,
-          easing: [0.16, 1, 0.3, 1]
-        }
-      );
+      try {
+        animate(
+          title as any,
+          { 
+            opacity: [0, 1],
+            transform: ['translateY(20px)', 'translateY(0)']
+          } as any,
+          { 
+            duration: 0.8
+          } as any
+        );
+      } catch (e) {
+        console.log('Animation not available');
+      }
     }
 
     // Animate contact info with stagger
     const contactItems = document.querySelectorAll('.contact-item');
     if (contactItems.length) {
-      animate(
-        contactItems,
-        { 
-          opacity: [0, 1],
-          transform: ['translateX(-20px)', 'translateX(0)']
-        },
-        { 
-          duration: 0.6,
-          delay: stagger(0.1),
-          easing: [0.16, 1, 0.3, 1]
-        }
-      );
+      try {
+        animate(
+          contactItems as any,
+          { 
+            opacity: [0, 1],
+            transform: ['translateX(-20px)', 'translateX(0)']
+          } as any,
+          { 
+            duration: 0.6,
+            delay: stagger(0.1)
+          } as any
+        );
+      } catch (e) {
+        console.log('Animation not available');
+      }
     }
 
     // Animate form with fade
     const form = document.querySelector('.contact-form');
     if (form) {
-      animate(
-        form as Element,
-        { 
-          opacity: [0, 1],
-          transform: ['translateY(20px)', 'translateY(0)']
-        },
-        { 
-          duration: 0.8,
-          delay: 0.3,
-          easing: [0.16, 1, 0.3, 1]
-        }
-      );
+      try {
+        animate(
+          form as any,
+          { 
+            opacity: [0, 1],
+            transform: ['translateY(20px)', 'translateY(0)']
+          } as any,
+          { 
+            duration: 0.8,
+            delay: 0.3
+          } as any
+        );
+      } catch (e) {
+        console.log('Animation not available');
+      }
     }
   });
 

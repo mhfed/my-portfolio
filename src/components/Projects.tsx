@@ -71,34 +71,40 @@ export default component$(() => {
     // Animate section title
     const title = document.querySelector('.projects-title');
     if (title) {
-      animate(
-        title as Element,
-        { 
-          opacity: [0, 1],
-          transform: ['translateY(20px)', 'translateY(0)']
-        },
-        { 
-          duration: 0.8,
-          easing: [0.16, 1, 0.3, 1]
-        }
-      );
+      try {
+        animate(
+          title as any,
+          { 
+            opacity: [0, 1],
+            transform: ['translateY(20px)', 'translateY(0)']
+          } as any,
+          { 
+            duration: 0.8
+          } as any
+        );
+      } catch (e) {
+        console.log('Animation not available');
+      }
     }
 
     // Animate project cards with stagger
     const cards = document.querySelectorAll('.project-card');
     if (cards.length) {
-      animate(
-        cards,
-        { 
-          opacity: [0, 1],
-          transform: ['translateY(30px)', 'translateY(0)']
-        },
-        { 
-          duration: 0.6,
-          delay: stagger(0.2),
-          easing: [0.16, 1, 0.3, 1]
-        }
-      );
+      try {
+        animate(
+          cards as any,
+          { 
+            opacity: [0, 1],
+            transform: ['translateY(30px)', 'translateY(0)']
+          } as any,
+          { 
+            duration: 0.6,
+            delay: stagger(0.2)
+          } as any
+        );
+      } catch (e) {
+        console.log('Animation not available');
+      }
     }
   });
 
