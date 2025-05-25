@@ -1,9 +1,20 @@
-import { component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
-import { Link, useLocation } from '@builder.io/qwik-city';
+import { component$, useSignal, useVisibleTask$, $ } from '@builder.io/qwik';
 
 export default component$(() => {
   const isMenuOpen = useSignal(false);
-  const location = useLocation();
+  const activeSection = useSignal('hero');
+
+  // Smooth scroll to section function
+  const scrollToSection = $((sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    isMenuOpen.value = false;
+  });
 
   // Close menu when clicking outside
   useVisibleTask$(() => {
@@ -14,15 +25,38 @@ export default component$(() => {
       }
     };
 
+    // Handle scroll to update active section
+    const handleScroll = () => {
+      const sections = ['hero-section', 'about', 'skills', 'projects', 'contact'];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            activeSection.value = sectionId;
+            break;
+          }
+        }
+      }
+    };
+
     document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      window.removeEventListener('scroll', handleScroll);
+    };
   });
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/contact', label: 'Contact' },
+    { sectionId: 'hero-section', label: 'Home' },
+    { sectionId: 'about', label: 'About' },
+    { sectionId: 'skills', label: 'Skills' },
+    { sectionId: 'projects', label: 'Projects' },
+    { sectionId: 'contact', label: 'Contact' },
   ];
 
   return (
@@ -31,23 +65,26 @@ export default component$(() => {
         <div class="flex items-center justify-between h-16">
           {/* Logo/Name */}
           <div class="flex-shrink-0">
-            <Link href="/" class="text-xl font-bold text-blue-600">
+            <button 
+              onClick$={() => scrollToSection('hero-section')}
+              class="text-xl font-bold text-blue-600 hover:text-blue-700 transition-colors"
+            >
               Nguyễn Minh Hiếu
-            </Link>
+            </button>
           </div>
 
           {/* Desktop Navigation */}
           <div class="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
+              <button
+                key={link.sectionId}
+                onClick$={() => scrollToSection(link.sectionId)}
                 class={`text-gray-600 hover:text-blue-600 transition-colors ${
-                  location.url.pathname === link.href ? 'text-blue-600 font-medium' : ''
+                  activeSection.value === link.sectionId ? 'text-blue-600 font-medium' : ''
                 }`}
               >
                 {link.label}
-              </Link>
+              </button>
             ))}
           </div>
 
@@ -89,16 +126,15 @@ export default component$(() => {
       >
         <div class="px-4 pt-2 pb-4 bg-white/90 backdrop-blur-sm shadow-lg">
           {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick$={() => (isMenuOpen.value = false)}
-              class={`block py-3 text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md px-3 transition-colors ${
-                location.url.pathname === link.href ? 'text-blue-600 bg-blue-50' : ''
+            <button
+              key={link.sectionId}
+              onClick$={() => scrollToSection(link.sectionId)}
+              class={`block w-full text-left py-3 text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md px-3 transition-colors ${
+                activeSection.value === link.sectionId ? 'text-blue-600 bg-blue-50' : ''
               }`}
             >
               {link.label}
-            </Link>
+            </button>
           ))}
         </div>
       </div>

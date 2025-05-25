@@ -1,8 +1,18 @@
-import { component$ } from '@builder.io/qwik';
+import { component$, $ } from '@builder.io/qwik';
 import { MotionSection } from './MotionSection';
-import { Link } from '@builder.io/qwik-city';
 
 export const HeroSection = component$(() => {
+  // Smooth scroll to section function
+  const scrollToSection = $((sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+
   return (
     <MotionSection
       id="hero-section"
@@ -35,7 +45,7 @@ export const HeroSection = component$(() => {
           class=""
         >
           <p class="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed">
-            Transforming ideas into elegant, performant solutions
+            Frontend Developer | UI/UX Enthusiast | JavaScript Specialist
           </p>
         </MotionSection>
 
@@ -45,12 +55,18 @@ export const HeroSection = component$(() => {
           class=""
         >
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/projects" class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-            View My Work
-            </Link>
-            <Link href="/contact" class="bg-white hover:bg-gray-50 text-gray-900 font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-200">
-            Contact Me
-            </Link>
+            <button 
+              onClick$={() => scrollToSection('projects')}
+              class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+            >
+              View My Work
+            </button>
+            <button 
+              onClick$={() => scrollToSection('contact')}
+              class="bg-white hover:bg-gray-50 text-gray-900 font-semibold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-200"
+            >
+              Contact Me
+            </button>
           </div>
         </MotionSection>
       </div>

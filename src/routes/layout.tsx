@@ -1,6 +1,8 @@
 import { component$, Slot } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
 import Navbar from "~/components/Navbar";
+import { ScrollIndicator } from "~/components/ScrollIndicator";
+import { BackToTop } from "~/components/BackToTop";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -16,6 +18,7 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 export default component$(() => {
   return (
     <>
+      <ScrollIndicator />
       <Navbar />
       <main class="">
         <Slot />
@@ -28,6 +31,8 @@ export default component$(() => {
           </div>
         </div>
       </footer>
+      
+      <BackToTop />
     </>
   );
 });

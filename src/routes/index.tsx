@@ -1,11 +1,19 @@
 import { component$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
 import { HeroSection } from '~/components/HeroSection';
+import About from '~/components/About';
+import Skills from '~/components/Skills';
+import Projects from '~/components/Projects';
+import Contact from '~/components/Contact';
 
 export default component$(() => {
   return (
     <div class="min-h-screen">
       <HeroSection />
+      <About />
+      <Skills />
+      <Projects />
+      <Contact />
     </div>
   );
 });
