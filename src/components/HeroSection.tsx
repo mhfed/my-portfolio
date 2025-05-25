@@ -1,5 +1,62 @@
-import { component$, $ } from '@builder.io/qwik';
+import { component$, $, useSignal, useVisibleTask$ } from '@builder.io/qwik';
 import { MotionSection } from './MotionSection';
+
+const TypewriterEffect = component$<{
+  texts: string[];
+  speed?: number;
+  deleteSpeed?: number;
+  pauseTime?: number;
+  class?: string;
+}>((props) => {
+  const displayText = useSignal('');
+  const currentIndex = useSignal(0);
+  const isDeleting = useSignal(false);
+  const charIndex = useSignal(0);
+
+  useVisibleTask$(() => {
+    const { texts, speed = 50, deleteSpeed = 50, pauseTime = 500 } = props;
+    
+    const typeWriter = () => {
+      const currentText = texts[currentIndex.value];
+      
+      if (!isDeleting.value) {
+        // Typing
+        if (charIndex.value < currentText.length) {
+          displayText.value = currentText.substring(0, charIndex.value + 1);
+          charIndex.value++;
+          setTimeout(typeWriter, speed);
+        } else {
+          // Pause before deleting
+          setTimeout(() => {
+            isDeleting.value = true;
+            typeWriter();
+          }, pauseTime);
+        }
+      } else {
+        // Deleting
+        if (charIndex.value > 0) {
+          displayText.value = currentText.substring(0, charIndex.value - 1);
+          charIndex.value--;
+          setTimeout(typeWriter, deleteSpeed);
+        } else {
+          // Move to next text
+          isDeleting.value = false;
+          currentIndex.value = (currentIndex.value + 1) % texts.length;
+          setTimeout(typeWriter, speed);
+        }
+      }
+    };
+
+    typeWriter();
+  });
+
+  return (
+    <span class={props.class}>
+      {displayText.value}
+      <span class="animate-pulse">|</span>
+    </span>
+  );
+});
 
 export const HeroSection = component$(() => {
   // Smooth scroll to section function
@@ -12,6 +69,14 @@ export const HeroSection = component$(() => {
       });
     }
   });
+
+  const typewriterTexts = [
+    'Nguyen Minh Hieu',
+    'Frontend Developer',
+    'JavaScript Specialist',
+    'UI/UX Enthusiast',
+    'NextJS Developer',
+  ];
 
   return (
     <MotionSection
@@ -34,8 +99,15 @@ export const HeroSection = component$(() => {
           options={{ duration: 0.8, delay: 0.2 }}
           class=""
         >
-          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4 md:mb-6 leading-tight">
-            Hi, I'm <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 block sm:inline">Nguyen Minh Hieu</span>
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4 md:mb-6 leading-tight min-h-[1.2em]">
+            Hi, I'm <br class="sm:hidden" />
+            <TypewriterEffect 
+              texts={typewriterTexts}
+              speed={100}
+              deleteSpeed={50}
+              pauseTime={2000}
+              class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 block sm:inline min-w-full"
+            />
           </h1>
         </MotionSection>
 
