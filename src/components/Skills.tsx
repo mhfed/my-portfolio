@@ -4,49 +4,45 @@ import { animate, stagger } from 'motion';
 export default component$(() => {
   const skills = [
     { 
-      category: 'Frontend', 
+      category: 'Frontend Core', 
       items: [
         { name: 'HTML5', level: 95 },
-        { name: 'CSS3', level: 90 },
+        { name: 'CSS3', level: 95 },
         { name: 'JavaScript', level: 95 },
-        { name: 'TypeScript', level: 85 },
-        { name: 'React', level: 90 },
-        { name: 'Qwik', level: 80 },
-        { name: 'Vue.js', level: 85 }
+        { name: 'TypeScript', level: 90 },
+        { name: 'ES6+', level: 90 }
       ]
     },
     { 
-      category: 'Backend', 
+      category: 'Frameworks & Libraries', 
       items: [
-        { name: 'Node.js', level: 90 },
-        { name: 'Python', level: 85 },
-        { name: 'Java', level: 80 },
-        { name: 'SQL', level: 85 },
-        { name: 'MongoDB', level: 80 },
-        { name: 'REST APIs', level: 90 },
-        { name: 'GraphQL', level: 75 }
+        { name: 'React.js', level: 95 },
+        { name: 'Next.js', level: 90 },
+        { name: 'React Native', level: 85 },
+        { name: 'Vue.js', level: 80 },
+        { name: 'Redux', level: 90 }
       ]
     },
     { 
-      category: 'DevOps', 
+      category: 'Styling & UI', 
       items: [
-        { name: 'Git', level: 90 },
-        { name: 'Docker', level: 85 },
-        { name: 'AWS', level: 80 },
-        { name: 'CI/CD', level: 85 },
-        { name: 'Linux', level: 80 },
-        { name: 'Kubernetes', level: 75 }
+        { name: 'Material-UI', level: 90 },
+        { name: 'Ant Design', level: 85 },
+        { name: 'Tailwind CSS', level: 90 },
+        { name: 'Bootstrap', level: 85 },
+        { name: 'Sass', level: 85 }
       ]
     },
     { 
-      category: 'Tools', 
+      category: 'Tools & Technologies', 
       items: [
-        { name: 'VS Code', level: 95 },
-        { name: 'Figma', level: 85 },
-        { name: 'Postman', level: 90 },
-        { name: 'Jest', level: 85 },
-        { name: 'Webpack', level: 80 },
-        { name: 'npm/yarn', level: 90 }
+        { name: 'Git', level: 95 },
+        { name: 'CI/CD', level: 80 },
+        { name: 'RESTful APIs', level: 90 },
+        { name: 'Websockets', level: 85 },
+        { name: 'SSE', level: 85 },
+        { name: 'Testing', level: 80 },
+        { name: 'Canvas', level: 75 }
       ]
     },
   ];
@@ -109,7 +105,7 @@ export default component$(() => {
     <section class="py-20 bg-gradient-to-b from-white to-gray-50" id="skills">
       <div class="max-w-6xl mx-auto px-8">
         <h2 class="skills-title opacity-0 text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-          Skills & Technologies
+          Technical Skills
         </h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skills.map((skillGroup) => (
@@ -139,10 +135,40 @@ export default component$(() => {
             </div>
           ))}
         </div>
+        
+        {/* Additional Skills Summary */}
+        <div class="mt-16 bg-white rounded-2xl p-8 shadow-lg">
+          <h3 class="text-2xl font-bold text-center mb-8 text-gray-900">Additional Expertise</h3>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-2xl">🔄</span>
+              </div>
+              <h4 class="font-semibold text-gray-900 mb-2">Real-time Features</h4>
+              <p class="text-gray-600 text-sm">Experienced with Websockets, SSE, and real-time data updates for trading applications</p>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-2xl">📱</span>
+              </div>
+              <h4 class="font-semibold text-gray-900 mb-2">Responsive Design</h4>
+              <p class="text-gray-600 text-sm">Cross-browser compatibility and responsiveness across various devices and screen sizes</p>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-2xl">🔧</span>
+              </div>
+              <h4 class="font-semibold text-gray-900 mb-2">Build Tools</h4>
+              <p class="text-gray-600 text-sm">Understanding of Assets & build management tools, e.g: Webpack, Babel</p>
+            </div>
+          </div>
+        </div>
+        
         <div class="mt-16 text-center">
           <p class="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
-            I'm always learning and expanding my skill set. Currently exploring new technologies 
-            in AI/ML and Web3 space.
+            Proficient in debugging and optimizing web application performance. 
+            Strong analytical skills for business requirements, with up-to-date awareness of web trends. 
+            Proficient in Google search and English comprehension.
           </p>
         </div>
       </div>

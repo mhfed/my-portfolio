@@ -4,28 +4,66 @@ import { animate, stagger } from 'motion';
 export default component$(() => {
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce solution with real-time inventory management and payment processing.',
-      tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      image: '/images/project1.jpg',
-      link: '#',
+      title: 'Mobile App Iress Trading',
+      description: 'React Native trading application with real-time data updates, portfolio management, and watchlist features. Developed responsive UI components and implemented state management using Redux.',
+      details: [
+        'Developed responsive UI components and navigational flows using React Native navigation',
+        'Implemented state management using Redux to efficiently manage application state',
+        'Developed features for viewing, adding, editing, and deleting watchlists',
+        'Draw portfolio distribution charts based on backend data',
+        'Integrated API for real-time data updates and smooth trading experience'
+      ],
+      tech: ['React Native', 'Redux', 'RN Reanimated', 'TypeScript', 'SSE', 'RESTful APIs', 'Git', 'i18n', 'Firebase'],
+      company: 'NOVUS FINTECH',
+      period: '11/2023 - Now',
+      teamSize: '8 members',
       color: 'from-blue-500 to-indigo-600',
     },
     {
-      title: 'Task Management App',
-      description: 'A collaborative task management tool with real-time updates and team collaboration features.',
-      tech: ['Vue.js', 'Firebase', 'Tailwind CSS'],
-      image: '/images/project2.jpg',
-      link: '#',
+      title: 'CMS Website (CGSI, Iress Wealth, Admin Portal Equix)',
+      description: 'Content Management System for financial applications with advanced filtering, form validation, and theme customization features.',
+      details: [
+        'Implementing the login flow and user authentication with a third party',
+        'Performing functions such as: adding, editing, deleting, and updating data using Formik to handle form data validation with Yup',
+        'Creating advanced filtering functionalities for the list screens',
+        'Developing a theme builder feature on the CMS to customize the color scheme of the trading application on mobile devices'
+      ],
+      tech: ['TypeScript', 'ReactJS', 'Redux', 'RestAPI', 'Formik', 'Yup', 'Git', 'Material UI', 'Golden layout', 'i18n', 'Axios'],
+      company: 'NOVUS FINTECH',
+      period: '8/2022 - 4/2024',
+      teamSize: '20 members',
       color: 'from-purple-500 to-pink-600',
     },
     {
-      title: 'AI Content Generator',
-      description: 'An AI-powered content generation platform using advanced NLP models.',
-      tech: ['Python', 'TensorFlow', 'FastAPI', 'React'],
-      image: '/images/project3.jpg',
-      link: '#',
+      title: 'Trading Website (EQUIX, MAGPIE, CGSI)',
+      description: 'Comprehensive trading platforms with real-time updates, order management, and portfolio tracking. Built with modern web technologies and SSE for live data.',
+      details: [
+        'Develop login, registration, and forgot password features with reCAPTCHA',
+        'Implement two-factor authentication using a PIN',
+        'Implementing trading functionalities such as order placement, trade execution, and portfolio management features',
+        'Utilize Next.js to create a Fundamental embedded Website for tracking stock information',
+        'Improve UI/UX with canvas grid and pop-ups'
+      ],
+      tech: ['JavaScript', 'TypeScript', 'ReactJS', 'SSE', 'RESTful API', 'Git', 'Golden layout', 'Chart.js', 'i18n', 'Axios', 'Firebase'],
+      company: 'NOVUS FINTECH',
+      period: '8/2022 - 11/2023',
+      teamSize: '25 members',
       color: 'from-green-500 to-teal-600',
+    },
+    {
+      title: 'Metacity System & Landing Page',
+      description: 'Game interface system and landing page with custom animations, responsive design, and cross-browser compatibility. Translated Figma designs to production-ready code.',
+      details: [
+        'Make interface, effect animation, customize game interface',
+        'Translated designs from Figma to HTML and CSS while ensuring that the UX and UI design are maintained',
+        'Ensuring cross-browser compatibility and responsiveness across various devices and screen sizes',
+        'Refactor code, investigate code and fix-bugs'
+      ],
+      tech: ['NextJS', 'ReactJS', 'Redux', 'Sass', 'Ant Design', 'PHP', 'Git', 'Axios'],
+      company: 'METACITY',
+      period: '7/2021 - 8/2022',
+      teamSize: '15 members',
+      color: 'from-orange-500 to-red-600',
     },
   ];
 
@@ -70,52 +108,92 @@ export default component$(() => {
         <h2 class="projects-title opacity-0 text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
           Featured Projects
         </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-2 gap-8">
           {projects.map((project) => (
             <div 
               key={project.title} 
               class="project-card opacity-0 group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
             >
-              <div class="h-48 bg-gray-300 relative overflow-hidden">
-                <div class={`absolute inset-0 bg-gradient-to-r ${project.color} opacity-20 group-hover:opacity-30 transition-opacity duration-300`}></div>
-                <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-              </div>
-              <div class="p-6">
-                <h3 class="text-xl font-bold mb-2 group-hover:text-blue-600 transition-colors duration-300">
+              <div class="p-8">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <div class="mb-4 md:mb-0">
+                    <div class={`inline-block px-3 py-1 rounded-full bg-gradient-to-r ${project.color} text-white text-sm font-medium mb-2`}>
+                      {project.company}
+                    </div>
+                    <div class="text-sm text-gray-500 mb-1">{project.period}</div>
+                    <div class="text-sm text-gray-500">Team: {project.teamSize}</div>
+                  </div>
+                </div>
+                
+                <h3 class="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors duration-300">
                   {project.title}
                 </h3>
-                <p class="text-gray-600 mb-4 line-clamp-2">{project.description}</p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((tech) => (
-                    <span 
-                      key={tech} 
-                      class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors duration-300"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                
+                <p class="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
+                
+                <div class="mb-6">
+                  <h4 class="font-semibold text-gray-900 mb-2">Key Features:</h4>
+                  <ul class="space-y-1">
+                    {project.details.slice(0, 3).map((detail, idx) => (
+                      <li key={idx} class="flex items-start gap-2 text-sm text-gray-700">
+                        <span class="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <a
-                  href={project.link}
-                  class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:shadow-lg"
-                >
-                  View Project
-                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </a>
+                
+                <div class="mb-6">
+                  <h4 class="font-semibold text-gray-900 mb-2">Technologies:</h4>
+                  <div class="flex flex-wrap gap-2">
+                    {project.tech.slice(0, 6).map((tech) => (
+                      <span 
+                        key={tech} 
+                        class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-medium hover:bg-gray-200 transition-colors duration-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.tech.length > 6 && (
+                      <span class="px-2 py-1 bg-gray-100 text-gray-500 rounded text-xs">
+                        +{project.tech.length - 6} more
+                      </span>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
+        
         <div class="text-center mt-16">
+          <div class="bg-white rounded-2xl p-8 shadow-lg">
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">Education & Awards</h3>
+            <div class="space-y-4">
+              <div class="border-l-4 border-blue-500 pl-4">
+                <h4 class="font-semibold text-gray-900">FPT Polytechnic Ha Noi</h4>
+                <p class="text-gray-600">Web Development (GPA 8.5) - Degree Classification: Good</p>
+              </div>
+              <div class="border-l-4 border-purple-500 pl-4">
+                <h4 class="font-semibold text-gray-900">Top 4 - FPT Edu Hackathon 2022</h4>
+                <p class="text-gray-600">Blockchain Field: Accompany with 4 teammates pass over 3 rounds: (Algorithm, Idea, Product)</p>
+              </div>
+              <div class="border-l-4 border-green-500 pl-4">
+                <h4 class="font-semibold text-gray-900">Top 100 Best Student</h4>
+                <p class="text-gray-600">Highest grade (Fall 2020, Summer 2021)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-8">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/mhfed"
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center gap-2 border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-all duration-300 hover:shadow-lg"
           >
-            View More Projects
+            View More on GitHub
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>

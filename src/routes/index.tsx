@@ -3,6 +3,7 @@ import type { DocumentHead } from '@builder.io/qwik-city';
 import { HeroSection } from '~/components/HeroSection';
 import About from '~/components/About';
 import Skills from '~/components/Skills';
+import WorkExperience from '~/components/WorkExperience';
 import Projects from '~/components/Projects';
 import Contact from '~/components/Contact';
 
@@ -12,6 +13,7 @@ export default component$(() => {
       <HeroSection />
       <About />
       <Skills />
+      <WorkExperience />
       <Projects />
       <Contact />
     </div>

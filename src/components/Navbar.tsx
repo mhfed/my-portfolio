@@ -100,6 +100,7 @@ export default component$(() => {
     { sectionId: 'hero-section', label: 'Home' },
     { sectionId: 'about', label: 'About' },
     { sectionId: 'skills', label: 'Skills' },
+    { sectionId: 'experience', label: 'Experience' },
     { sectionId: 'projects', label: 'Projects' },
     { sectionId: 'contact', label: 'Contact' },
   ];
