@@ -1,4 +1,5 @@
 import { component$ } from '@builder.io/qwik';
+import ImgChibi from '~/media/images/chibi.png?jsx';
 
 export default component$(() => {
   return (
@@ -32,7 +33,12 @@ export default component$(() => {
             </div>
           </div>
           <div class="relative">
-            <div class="w-full h-[400px] bg-indigo-600 rounded-lg"></div>
+            <div class="w-full rounded-lg overflow-hidden shadow-lg">
+              <ImgChibi 
+                alt="Nguyễn Minh Hiếu - Chibi Avatar" 
+                class="w-full h-full object-cover object-bottom hover:scale-105 transition-transform duration-300"
+              />
+            </div>
             <div class="absolute -bottom-6 -right-6 w-full h-full border-4 border-gray-900 rounded-lg -z-10"></div>
           </div>
         </div>
