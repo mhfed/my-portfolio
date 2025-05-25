@@ -48,7 +48,7 @@ export default component$(() => {
   ];
 
   return (
-    <section class="py-12 md:py-20 bg-gradient-to-b from-white to-gray-50" id="experience">
+    <section class="py-12 md:py-20 bg-gradient-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-800" id="experience">
       <div class="max-w-6xl mx-auto px-4 md:px-8">
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
           Work Experience

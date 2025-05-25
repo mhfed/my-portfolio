@@ -3,7 +3,7 @@ import ImgChibi from '~/media/images/chibi.png?jsx';
 
 export default component$(() => {
   return (
-    <section class="py-12 md:py-20 bg-gray-50" id="about">
+    <section class="py-12 md:py-20" id="about">
       <div class="max-w-6xl mx-auto px-4 md:px-8">
         <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12">About Me</h2>
         <div class="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">

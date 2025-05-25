@@ -1,4 +1,5 @@
 import { component$, useSignal, useVisibleTask$, $ } from '@builder.io/qwik';
+import { DarkModeToggle } from './DarkModeToggle';
 
 export default component$(() => {
   const isMenuOpen = useSignal(false);
@@ -106,56 +107,67 @@ export default component$(() => {
   ];
 
   return (
-    <nav class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-sm shadow-sm">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border-b border-white/20 dark:border-slate-700/50 shadow-lg shadow-black/5 dark:shadow-black/20">
+      {/* Gradient overlay for extra visual appeal */}
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-50/50 via-transparent to-purple-50/50 dark:from-slate-800/50 dark:via-transparent dark:to-slate-700/50"></div>
+      
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           {/* Logo/Name */}
           <div class="flex-shrink-0">
             <button 
               onClick$={() => scrollToSection('hero-section')}
-              class="text-xl font-bold text-blue-600 hover:text-blue-700 transition-colors"
+              class="text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 dark:from-blue-400 dark:via-purple-400 dark:to-blue-300 bg-clip-text text-transparent hover:from-blue-700 hover:via-purple-700 hover:to-blue-900 dark:hover:from-blue-300 dark:hover:via-purple-300 dark:hover:to-blue-200 transition-all duration-300 hover:scale-105 active:scale-95"
             >
               Nguyễn Minh Hiếu
             </button>
           </div>
 
           {/* Desktop Navigation */}
-          <div class="hidden md:flex items-center space-x-8">
+          <div class="hidden md:flex items-center space-x-2">
             {navLinks.map((link) => (
               <button
                 key={link.sectionId}
                 onClick$={() => scrollToSection(link.sectionId)}
-                class={`cursor-pointer relative px-3 py-2 text-gray-600 hover:text-blue-600 transition-all duration-300 hover:bg-blue-50 rounded-lg group ${
-                  activeSection.value === link.sectionId ? 'text-blue-600 font-medium bg-blue-50' : ''
+                class={`cursor-pointer relative px-4 py-2 text-sm font-medium rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 group ${
+                  activeSection.value === link.sectionId 
+                    ? 'text-white bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg shadow-blue-500/25 dark:shadow-blue-400/25' 
+                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/80 dark:hover:bg-slate-700/80'
                 }`}
               >
                 {link.label}
-                <span class={`absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 ${
-                  activeSection.value === link.sectionId ? 'w-full' : 'w-0 group-hover:w-full'
-                }`}></span>
+                {activeSection.value !== link.sectionId && (
+                  <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 w-0 group-hover:w-3/4 rounded-full"></span>
+                )}
               </button>
             ))}
+            
+            {/* Dark Mode Toggle */}
+            <div class="ml-4">
+              <DarkModeToggle />
+            </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div class="md:hidden">
+          {/* Mobile Menu Button and Dark Mode Toggle */}
+          <div class="md:hidden flex items-center space-x-3">
+            <DarkModeToggle />
             <button
-              class="hamburger-btn p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100"
+              class="hamburger-btn p-2 rounded-xl text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/80 dark:hover:bg-slate-700/80 transition-all duration-300 hover:scale-105 active:scale-95"
               onClick$={() => (isMenuOpen.value = !isMenuOpen.value)}
             >
               <div class="w-6 h-6 relative">
                 <span
-                  class={`absolute w-full h-0.5 bg-current transform transition-all duration-300 ${
+                  class={`absolute w-full h-0.5 bg-current transform transition-all duration-300 rounded-full ${
                     isMenuOpen.value ? 'rotate-45 top-3' : 'top-1'
                   }`}
                 />
                 <span
-                  class={`absolute w-full h-0.5 bg-current top-3 transition-opacity duration-300 ${
+                  class={`absolute w-full h-0.5 bg-current top-3 transition-opacity duration-300 rounded-full ${
                     isMenuOpen.value ? 'opacity-0' : 'opacity-100'
                   }`}
                 />
                 <span
-                  class={`absolute w-full h-0.5 bg-current transform transition-all duration-300 ${
+                  class={`absolute w-full h-0.5 bg-current transform transition-all duration-300 rounded-full ${
                     isMenuOpen.value ? '-rotate-45 top-3' : 'top-5'
                   }`}
                 />
@@ -173,18 +185,26 @@ export default component$(() => {
             : 'opacity-0 -translate-y-2 invisible'
         }`}
       >
-        <div class="px-4 pt-2 pb-4 bg-white/90 backdrop-blur-sm shadow-lg">
-          {navLinks.map((link) => (
-            <button
-              key={link.sectionId}
-              onClick$={() => scrollToSection(link.sectionId)}
-              class={`block w-full text-left py-3 text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md px-3 transition-all duration-300 hover:translate-x-1 hover:shadow-sm ${
-                activeSection.value === link.sectionId ? 'text-blue-600 bg-blue-50 translate-x-1 shadow-sm' : ''
-              }`}
-            >
-              {link.label}
-            </button>
-          ))}
+        <div class="mx-4 mt-2 mb-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl shadow-xl shadow-black/10 dark:shadow-black/30 border border-white/20 dark:border-slate-700/50 overflow-hidden">
+          {/* Gradient overlay for mobile menu */}
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 dark:from-slate-800/30 dark:via-transparent dark:to-slate-700/30"></div>
+          
+          <div class="relative p-2">
+            {navLinks.map((link, index) => (
+              <button
+                key={link.sectionId}
+                onClick$={() => scrollToSection(link.sectionId)}
+                class={`block w-full text-left py-3 px-4 text-base font-medium rounded-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] mb-1 ${
+                  activeSection.value === link.sectionId 
+                    ? 'text-white bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg shadow-blue-500/25 dark:shadow-blue-400/25' 
+                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/80 dark:hover:bg-slate-700/80'
+                }`}
+                style={`animation-delay: ${index * 50}ms`}
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </nav>
