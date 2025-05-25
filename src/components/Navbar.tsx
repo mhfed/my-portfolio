@@ -4,9 +4,13 @@ import { DarkModeToggle } from './DarkModeToggle';
 export default component$(() => {
   const isMenuOpen = useSignal(false);
   const activeSection = useSignal('hero');
+  const isScrolling = useSignal(false);
 
   // Smooth scroll to section function
   const scrollToSection = $((sectionId: string) => {
+    isScrolling.value = true;
+    activeSection.value = sectionId;
+    
     const element = document.getElementById(sectionId);
     if (element) {
       // Update URL hash
@@ -17,6 +21,10 @@ export default component$(() => {
         behavior: 'smooth',
         block: 'start'
       });
+      
+      setTimeout(() => {
+        isScrolling.value = false;
+      }, 1000);
     }
     isMenuOpen.value = false;
   });
@@ -32,6 +40,8 @@ export default component$(() => {
 
     // Handle scroll to update active section
     const handleScroll = () => {
+      if (isScrolling.value) return;
+      
       const sections = ['hero-section', 'about', 'skills', 'experience', 'projects', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
@@ -129,7 +139,7 @@ export default component$(() => {
               <button
                 key={link.sectionId}
                 onClick$={() => scrollToSection(link.sectionId)}
-                class={`cursor-pointer relative px-4 py-2 text-sm font-medium rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 group ${
+                class={`cursor-pointer relative px-4 py-2 text-sm font-medium rounded-t-xl transition-all duration-300 hover:scale-105 active:scale-95 group ${
                   activeSection.value === link.sectionId 
                     ? 'text-white bg-linear-to-r from-blue-600 to-purple-600 shadow-lg shadow-blue-500/25 dark:shadow-blue-400/25' 
                     : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/80 dark:hover:bg-slate-700/80'
@@ -137,7 +147,7 @@ export default component$(() => {
               >
                 {link.label}
                 {activeSection.value !== link.sectionId && (
-                  <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-linear-to-r from-blue-600 to-purple-600 transition-all duration-300 w-0 group-hover:w-3/4 rounded-full"></span>
+                  <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-linear-to-r from-blue-600 to-purple-600 transition-all duration-300 w-0 group-hover:w-full rounded-full"></span>
                 )}
               </button>
             ))}

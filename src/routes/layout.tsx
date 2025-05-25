@@ -71,10 +71,10 @@ export default component$(() => {
               <h4 class="text-lg font-semibold mb-4 text-gray-200">Connect</h4>
               <div class="space-y-2">
                 <p class="text-gray-400">
-                  <span class="text-gray-300">Email:</span> contact@example.com
+                  <span class="text-gray-300">Email:</span> nmhieu04091999@gmail.com
                 </p>
                 <p class="text-gray-400">
-                  <span class="text-gray-300">Location:</span> Vietnam
+                  <span class="text-gray-300">Location:</span> Hanoi, Vietnam
                 </p>
                 <div class="flex justify-center md:justify-end space-x-4 mt-4">
                   {/* Social links placeholder */}
