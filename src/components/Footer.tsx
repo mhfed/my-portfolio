@@ -55,10 +55,10 @@ export default component$(() => {
                 </p>
                 <div class="flex justify-center md:justify-end space-x-4 mt-4">
                   {/* Social links placeholder */}
-                  <div class="w-8 h-8 bg-linear-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
+                  <div class="w-8 h-8 bg-linear-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 cursor-pointer">
                     <span class="text-xs">Li</span>
                   </div>
-                  <div class="w-8 h-8 bg-linear-to-r from-gray-700 to-gray-800 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
+                  <div class="w-8 h-8 bg-linear-to-r from-gray-700 to-gray-800 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 cursor-pointer">
                     <span class="text-xs">Gh</span>
                   </div>
                 </div>

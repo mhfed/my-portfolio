@@ -72,7 +72,7 @@ export default component$(() => {
           {skills.map((skillGroup, index) => (
             <ScrollAnimation key={skillGroup.category} animation="fadeInUp" delay={0.2 + index * 0.1}>
               <div 
-                class="bg-white dark:bg-slate-800 rounded-2xl p-4 md:p-6 shadow-lg dark:shadow-slate-900/30 hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-slate-700"
+                class="bg-white dark:bg-slate-800 rounded-2xl p-3 md:p-4 shadow-lg dark:shadow-slate-900/30 hover:shadow-xl dark:hover:shadow-slate-900/50 transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-slate-700 h-full"
               >
               <h3 class="text-lg md:text-xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
                 {skillGroup.category}
@@ -81,7 +81,7 @@ export default component$(() => {
                 {skillGroup.items.map((skill) => (
                   <div 
                     key={skill.name} 
-                    class={`px-3 py-2 rounded-xl font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-xl ${getLevelStyle(skill.level)}`}
+                    class={`px-2 py-1 rounded-full font-medium text-xs transition-all duration-300 hover:scale-105 hover:shadow-xl ${getLevelStyle(skill.level)}`}
                   >
                     {skill.name}
                   </div>
@@ -93,7 +93,7 @@ export default component$(() => {
         </div>
         
         {/* Skills Legend */}
-        <ScrollAnimation animation="fadeInUp" delay={0.6}>
+        {/* <ScrollAnimation animation="fadeInUp" delay={0.6}>
           <div class="mt-8 md:mt-12 flex justify-center">
             <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 md:p-6 shadow-lg dark:shadow-slate-900/30 border border-gray-100 dark:border-slate-700">
               <h4 class="text-sm md:text-base font-semibold text-gray-700 dark:text-gray-300 mb-3 text-center">Skill Levels</h4>
@@ -113,7 +113,7 @@ export default component$(() => {
               </div>
             </div>
           </div>
-        </ScrollAnimation>
+        </ScrollAnimation> */}
         
         {/* Additional Skills Summary */}
         <ScrollAnimation animation="fadeInUp" delay={0.7}>

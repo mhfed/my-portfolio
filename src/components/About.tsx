@@ -77,7 +77,7 @@ export default component$(() => {
             <div class="w-full max-w-sm mx-auto lg:max-w-none rounded-lg overflow-hidden shadow-lg dark:shadow-slate-900/30 border border-gray-200 dark:border-slate-700 transition-colors duration-300">
               <ImgChibi 
                 alt="Nguyễn Minh Hiếu - Chibi Avatar" 
-                class="w-full h-full object-cover object-bottom hover:scale-105 transition-transform duration-300"
+                class="w-full h-full object-cover object-bottom hover:scale-105 transition-all duration-300"
               />
             </div>
             <div class="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 w-full h-full border-4 border-gray-900 dark:border-slate-600 rounded-lg -z-10 transition-colors duration-300"></div>

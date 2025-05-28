@@ -59,13 +59,13 @@ export default component$(() => {
               <h3 class="text-xl md:text-2xl font-bold mb-6 md:mb-8 text-gray-900 dark:text-white">Contact Information</h3>
             <div class="space-y-4 md:space-y-6">
               <div class="flex items-center group">
-                <span class="w-10 h-10 md:w-12 md:h-12 bg-linear-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-3 md:mr-4 text-white shadow-lg group-hover:scale-110 transition-transform duration-300 text-sm md:text-base">
+                <span class="w-10 h-10 md:w-12 md:h-12 bg-linear-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-3 md:mr-4 text-white shadow-lg group-hover:scale-110 transition-all duration-300 text-sm md:text-base">
                   📍
                 </span>
                 <span class="text-gray-700 dark:text-gray-300 text-base md:text-lg">Vietnam</span>
               </div>
               <div class="flex items-center group">
-                <span class="w-10 h-10 md:w-12 md:h-12 bg-linear-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-3 md:mr-4 text-white shadow-lg group-hover:scale-110 transition-transform duration-300 text-sm md:text-base">
+                <span class="w-10 h-10 md:w-12 md:h-12 bg-linear-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-3 md:mr-4 text-white shadow-lg group-hover:scale-110 transition-all duration-300 text-sm md:text-base">
                   📧
                 </span>
                 <a href="mailto:nmhieu04091999@gmail.com" class="text-gray-700 dark:text-gray-300 text-base md:text-lg hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 break-all">
@@ -73,7 +73,7 @@ export default component$(() => {
                 </a>
               </div>
               <div class="flex items-center group">
-                <span class="w-10 h-10 md:w-12 md:h-12 bg-linear-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-3 md:mr-4 text-white shadow-lg group-hover:scale-110 transition-transform duration-300 text-sm md:text-base">
+                <span class="w-10 h-10 md:w-12 md:h-12 bg-linear-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-3 md:mr-4 text-white shadow-lg group-hover:scale-110 transition-all duration-300 text-sm md:text-base">
                   📱
                 </span>
                 <a href="tel:+84982084197" class="text-gray-700 dark:text-gray-300 text-base md:text-lg hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">

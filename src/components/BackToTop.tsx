@@ -35,7 +35,7 @@ export const BackToTop = component$(() => {
       {/* Icon container */}
       <div class="relative flex items-center justify-center w-full h-full">
         <svg 
-          class="w-6 h-6 transition-transform duration-300 group-hover:-translate-y-0.5 drop-shadow-sm" 
+          class="w-6 h-6 transition-all duration-300 group-hover:-translate-y-0.5 drop-shadow-sm" 
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24"
@@ -51,7 +51,7 @@ export const BackToTop = component$(() => {
 
       {/* Ripple effect on click */}
       <div class="absolute inset-0 rounded-2xl overflow-hidden">
-        <div class="absolute inset-0 bg-white/20 rounded-2xl scale-0 group-active:scale-100 transition-transform duration-200"></div>
+        <div class="absolute inset-0 bg-white/20 rounded-2xl scale-0 group-active:scale-100 transition-all duration-200"></div>
       </div>
 
       {/* Tooltip */}

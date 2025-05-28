@@ -78,7 +78,7 @@ export default component$(() => {
                           {work.company}
                         </h4>
                       </div>
-                      <div class={`px-3 md:px-4 py-2 rounded-full bg-linear-to-r ${work.color} text-white font-medium text-sm md:text-sm whitespace-nowrap shadow-lg`}>
+                      <div class={`px-3 py-1 rounded-full bg-linear-to-r ${work.color} text-white font-medium text-xs md:text-sm whitespace-nowrap shadow-lg`}>
                         {work.period}
                       </div>
                     </div>
